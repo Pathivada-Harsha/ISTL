@@ -1,0 +1,224 @@
+.hf-contact-container {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  /* font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; */
+}
+
+.hf-contact-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* Left Side - Contact Information */
+.hf-contact-info {
+  color: white;
+  padding: 2rem 0;
+}
+
+.hf-get-in-touch-section {
+  margin-bottom: 4rem;
+}
+
+.hf-section-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin: 0 0 1.5rem 0;
+  color: #ffffff;
+}
+
+.hf-section-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin: 0;
+  max-width: 400px;
+}
+
+.hf-head-office-section {
+  margin-top: 3rem;
+}
+
+.hf-office-title {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin: 0 0 1.5rem 0;
+  color: #ffffff;
+}
+
+.hf-office-address {
+  margin-bottom: 2rem;
+}
+
+.hf-office-address p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0.2rem 0;
+  opacity: 0.9;
+}
+
+.hf-contact-email {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+}
+
+.hf-email-icon {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.hf-email-text {
+  opacity: 0.9;
+}
+
+/* Right Side - Form Section */
+.hf-form-section {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hf-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.hf-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.hf-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.hf-form-group.hf-full-width {
+  grid-column: 1 / -1;
+}
+
+.hf-form-input,
+.hf-form-textarea,
+.hf-form-select {
+  padding: 1.2rem 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  outline: none;
+  margin-bottom: 0.5rem;
+}
+
+.hf-form-input:focus,
+.hf-form-textarea:focus,
+.hf-form-select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  background: #ffffff;
+}
+
+.hf-form-input::placeholder,
+.hf-form-textarea::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.hf-form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+.hf-form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 3rem;
+  cursor: pointer;
+}
+
+.hf-submit-button {
+  background: linear-gradient(45deg, #dc2626, #ef4444);
+  color: white;
+  border: none;
+  padding: 1.2rem 2.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+}
+
+.hf-submit-button:hover {
+  background: linear-gradient(45deg, #b91c1c, #dc2626);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hf-contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .hf-contact-container {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hf-contact-container {
+    padding: 2rem 1rem;
+  }
+  
+  .hf-section-title {
+    font-size: 2rem;
+  }
+  
+  .hf-office-title {
+    font-size: 1.5rem;
+  }
+  
+  .hf-form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .hf-contact-form {
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .hf-form-input,
+  .hf-form-textarea,
+  .hf-form-select {
+    padding: 1rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .hf-submit-button {
+    padding: 1rem 2rem;
+    font-size: 0.8rem;
+  }
+}

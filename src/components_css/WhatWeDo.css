@@ -1,0 +1,1116 @@
+/* Base Styles with WWD prefix to avoid conflicts */
+:root {
+  --wwd-primary: #3b82f6;
+  --wwd-primary-dark: #2563eb;
+  --wwd-primary-light: #60a5fa;
+  --wwd-secondary: #8b5cf6;
+  --wwd-accent: #10b981;
+  --wwd-dark: #1e293b;
+  --wwd-light: #f8fafc;
+  --wwd-gray: #64748b;
+  --wwd-gray-light: #e2e8f0;
+  --wwd-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --wwd-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --wwd-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --wwd-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --wwd-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.what-we-do-page {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--wwd-dark);
+  line-height: 1.5;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Animation Keyframes */
+@keyframes wwd-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes wwd-slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes wwd-slideRight {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes wwd-slideLeft {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes wwd-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Hero Section - Compact */
+.wwd-hero-section {
+  position: relative;
+  min-height: 50vh;
+  background: linear-gradient(135deg, var(--wwd-primary) 0%, var(--wwd-secondary) 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 3rem 1rem 2rem;
+}
+
+.wwd-hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.wwd-hero-text {
+  opacity: 0;
+  animation: wwd-slideRight 1s forwards 0.3s;
+}
+
+.wwd-hero-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.wwd-hero-line {
+  width: 60px;
+  height: 3px;
+  background: white;
+  margin-bottom: 1rem;
+}
+
+.wwd-hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+  max-width: 500px;
+}
+
+.wwd-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  color: var(--wwd-primary);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--wwd-transition);
+  box-shadow: var(--wwd-shadow-md);
+}
+
+.wwd-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--wwd-shadow-lg);
+}
+
+.wwd-arrow-icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+  transition: var(--wwd-transition);
+}
+
+.wwd-hero-cta:hover .wwd-arrow-icon {
+  transform: translateX(3px);
+}
+
+.wwd-hero-visual {
+  opacity: 0;
+  animation: wwd-slideLeft 1s forwards 0.6s;
+}
+
+.wwd-hero-image-container {
+  position: relative;
+  border-radius: 15px;
+  box-shadow: var(--wwd-shadow-xl);
+  overflow: hidden;
+}
+
+.wwd-hero-image {
+  width: 100%;
+  height: 500px;
+  display: block;
+  transition: var(--wwd-transition);
+}
+
+.wwd-floating-badge {
+  position: absolute;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--wwd-primary);
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  box-shadow: var(--wwd-shadow-md);
+  animation: wwd-float 3s ease-in-out infinite;
+}
+
+.wwd-badge-1 {
+  top: 15px;
+  left: 15px;
+  animation-delay: 0s;
+}
+.wwd-badge-2 {
+  top: 50%;
+  right: 15px;
+  animation-delay: 0.5s;
+}
+.wwd-badge-3 {
+  bottom: 15px;
+  left: 30%;
+  animation-delay: 1s;
+}
+
+/* Tab Navigation - Fixed scroll issue */
+.wwd-tab-navigation {
+  position: sticky;
+  top: 70px;
+  background: white;
+  box-shadow: var(--wwd-shadow-sm);
+  z-index: 100;
+  padding: 0 1rem;
+}
+
+.wwd-tab-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.wwd-tab-container::-webkit-scrollbar {
+  display: none;
+}
+
+.wwd-tab-button {
+  padding: 1rem 1.25rem;
+  background: transparent;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--wwd-gray);
+  cursor: pointer;
+  transition: var(--wwd-transition);
+  position: relative;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.wwd-tab-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--wwd-primary);
+  transition: var(--wwd-transition);
+}
+
+.wwd-tab-button:hover {
+  color: var(--wwd-primary);
+}
+
+.wwd-tab-button.active {
+  color: var(--wwd-primary);
+  font-weight: 600;
+}
+
+.wwd-tab-button.active::after {
+  width: 30px;
+}
+
+/* Section Containers - Compact */
+.wwd-section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+/* Fix animation visibility and timing */
+.wwd-section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+section.visible .wwd-section-header {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.wwd-section-title {
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: var(--wwd-dark);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.wwd-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--wwd-primary);
+}
+
+.wwd-section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.05rem);
+  color: var(--wwd-gray);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Overview Section */
+.wwd-overview-section {
+  background: var(--wwd-light);
+}
+
+/* Fix expertise cards animations */
+.wwd-expertise-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: var(--wwd-shadow-md);
+  transition: var(--wwd-transition);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+section.visible .wwd-expertise-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section.visible .wwd-card-1 {
+  transition-delay: 0.2s;
+}
+section.visible .wwd-card-2 {
+  transition-delay: 0.3s;
+}
+section.visible .wwd-card-3 {
+  transition-delay: 0.4s;
+}
+section.visible .wwd-card-4 {
+  transition-delay: 0.5s;
+}
+
+.wwd-expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.wwd-expertise-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--wwd-shadow-lg);
+}
+
+.wwd-expertise-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--wwd-primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: white;
+  transition: var(--wwd-transition);
+}
+
+.wwd-expertise-card:hover .wwd-expertise-icon {
+  background: var(--wwd-primary);
+  transform: scale(1.1);
+}
+
+.wwd-expertise-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.wwd-expertise-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--wwd-dark);
+}
+
+.wwd-expertise-card p {
+  color: var(--wwd-gray);
+  font-size: 0.9rem;
+}
+
+/* IoT Solutions Section - Horizontal Cards */
+.wwd-iot-section {
+  background-image: url("../images/backgrounds_imgs/bg4.png");
+  background-size: cover;
+  background-position:  center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Fix IoT cards animations */
+.wwd-iot-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: var(--wwd-shadow-lg);
+  overflow: hidden;
+  transition: all 0.6s ease;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+section.visible .wwd-iot-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section.visible .wwd-iot-card-1 {
+  transition-delay: 0.2s;
+}
+section.visible .wwd-iot-card-2 {
+  transition-delay: 0.4s;
+}
+section.visible .wwd-iot-card-3 {
+  transition-delay: 0.6s;
+}
+
+.wwd-iot-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.wwd-iot-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--wwd-shadow-xl);
+}
+
+.wwd-iot-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.wwd-iot-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--wwd-transition);
+}
+
+.wwd-iot-card:hover .wwd-iot-image img {
+  transform: scale(1.05);
+}
+
+.wwd-iot-content {
+  padding: 1.5rem;
+}
+
+.wwd-iot-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--wwd-dark);
+}
+
+.wwd-iot-content p {
+  color: var(--wwd-gray);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.wwd-know-more-btn {
+  background: var(--wwd-dark);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--wwd-transition);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.wwd-know-more-btn:hover {
+  background: var(--wwd-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--wwd-shadow-md);
+}
+
+/* EPC Services Section */
+.wwd-epc-section {
+  background: var(--wwd-light);
+  
+   /* background-image: url("../images/backgrounds_imgs/bg7.png");
+  background-size: cover;
+  background-position:  center;
+  background-repeat: no-repeat;
+  position: relative; */
+}
+
+/* Fix EPC cards animations */
+.wwd-epc-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: var(--wwd-shadow-lg);
+  overflow: hidden;
+  transition: all 0.6s ease;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+section.visible .wwd-epc-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section.visible .wwd-epc-card-1 {
+  transition-delay: 0.2s;
+}
+section.visible .wwd-epc-card-2 {
+  transition-delay: 0.4s;
+}
+
+.wwd-epc-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.wwd-epc-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--wwd-shadow-xl);
+}
+
+.wwd-epc-image {
+  height: 220px;
+  overflow: hidden;
+}
+
+.wwd-epc-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--wwd-transition);
+}
+
+.wwd-epc-card:hover .wwd-epc-image img {
+  transform: scale(1.05);
+}
+
+.wwd-epc-content {
+  padding: 1.5rem;
+}
+
+.wwd-epc-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--wwd-dark);
+}
+
+.wwd-epc-content p {
+  color: var(--wwd-gray);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Smart Meters Section */
+.wwd-smart-meter-section {
+  background-image: url("../images/backgrounds_imgs/bg8.png");
+  background-size: cover;
+  background-position:  center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Fix meter cards animations */
+.wwd-meter-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: var(--wwd-shadow-lg);
+  overflow: hidden;
+  transition: all 0.6s ease;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+section.visible .wwd-meter-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section.visible .wwd-meter-card-1 {
+  transition-delay: 0.2s;
+}
+section.visible .wwd-meter-card-2 {
+  transition-delay: 0.4s;
+}
+
+.wwd-meter-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.wwd-meter-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--wwd-shadow-xl);
+}
+/* .wwd-meter-image {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  background-image: url('../images/smartmeters/threephase3.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px; 
+}
+
+.wwd-meter-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: var(--wwd-transition);
+  position: relative;
+  z-index: 2;
+} */
+.wwd-meter-image {
+  height: 220px;
+  overflow: hidden;
+}
+
+.wwd-meter-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: var(--wwd-transition);
+}
+
+.wwd-meter-card:hover .wwd-meter-image img {
+  transform: scale(1.05);
+}
+
+.wwd-meter-content {
+  padding: 1.5rem;
+}
+
+.wwd-meter-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--wwd-dark);
+}
+
+.wwd-meter-content p {
+  color: var(--wwd-gray);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Street Lights Section */
+.wwd-street-lights-section {
+  background: var(--wwd-light);
+}
+
+/* Fix lights showcase animation */
+.wwd-lights-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+section.visible .wwd-lights-showcase {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.wwd-lights-image-container {
+  position: relative;
+  border-radius: 15px;
+  box-shadow: var(--wwd-shadow-lg);
+  overflow: hidden;
+}
+
+.wwd-lights-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wwd-lights-features {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.wwd-feature-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--wwd-primary);
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: var(--wwd-shadow-sm);
+  cursor: pointer;
+  transition: var(--wwd-transition);
+}
+
+.wwd-feature-dot:hover {
+  transform: scale(1.2);
+}
+
+.wwd-dot-1 {
+  top: 20%;
+  left: 20%;
+}
+.wwd-dot-2 {
+  top: 40%;
+  right: 15%;
+}
+.wwd-dot-3 {
+  bottom: 30%;
+  left: 25%;
+}
+.wwd-dot-4 {
+  bottom: 15%;
+  right: 20%;
+}
+
+.wwd-feature-tooltip {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: var(--wwd-dark);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  box-shadow: var(--wwd-shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--wwd-transition);
+}
+
+.wwd-feature-dot:hover .wwd-feature-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wwd-lights-details {
+  padding: 1rem;
+}
+
+.wwd-lights-details h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--wwd-dark);
+}
+
+.wwd-lights-details p {
+  color: var(--wwd-gray);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Fix spec items animations */
+.wwd-spec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  transition: var(--wwd-transition);
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.5s ease;
+}
+
+section.visible .wwd-spec-1 {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.5s;
+}
+section.visible .wwd-spec-2 {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.6s;
+}
+section.visible .wwd-spec-3 {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.7s;
+}
+
+.wwd-lights-specs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.wwd-spec-item:hover {
+  transform: translateX(8px);
+  box-shadow: var(--wwd-shadow-sm);
+}
+
+.wwd-spec-icon {
+  width: 35px;
+  height: 35px;
+  background: var(--wwd-primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.wwd-spec-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.wwd-spec-content h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--wwd-dark);
+}
+
+.wwd-spec-content p {
+  color: var(--wwd-gray);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.wwd-lights-btn {
+  margin-top: 1rem;
+}
+
+/* Technologies Section - Compact */
+.wwd-technologies-section {
+  background: white;
+}
+
+/* Fix tech categories animations */
+.wwd-tech-category {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+section.visible .wwd-tech-category {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section.visible .wwd-tech-cat-1 {
+  transition-delay: 0.3s;
+}
+section.visible .wwd-tech-cat-2 {
+  transition-delay: 0.5s;
+}
+section.visible .wwd-tech-cat-3 {
+  transition-delay: 0.7s;
+}
+
+.wwd-tech-categories {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.wwd-tech-category h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--wwd-dark);
+  text-align: center;
+  position: relative;
+}
+
+.wwd-tech-category h3::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35px;
+  height: 3px;
+  background: var(--wwd-primary);
+}
+
+.wwd-tech-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.wwd-tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  padding: 1rem;
+  background: var(--wwd-light);
+  border-radius: 8px;
+  box-shadow: var(--wwd-shadow-sm);
+  transition: var(--wwd-transition);
+}
+
+.wwd-tech-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--wwd-shadow-md);
+}
+
+.wwd-tech-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--wwd-primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  color: white;
+  transition: var(--wwd-transition);
+}
+
+.wwd-tech-item:hover .wwd-tech-icon {
+  background: var(--wwd-primary);
+  transform: scale(1.1);
+}
+
+.wwd-tech-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.wwd-tech-item span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--wwd-dark);
+  text-align: center;
+}
+
+/* CTA Section - Compact */
+.wwd-cta-section {
+  background: linear-gradient(135deg, var(--wwd-primary) 0%, var(--wwd-secondary) 100%);
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.wwd-cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.wwd-cta-section h2 {
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.wwd-cta-section p {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.wwd-cta-button {
+  background: white;
+  color: var(--wwd-primary);
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--wwd-transition);
+  box-shadow: var(--wwd-shadow-md);
+}
+
+.wwd-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--wwd-shadow-lg);
+}
+
+/* Responsive Design */
+/* Enhanced Mobile Responsiveness - Fix empty layouts */
+@media (max-width: 768px) {
+  .wwd-section-container {
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
+
+  .wwd-hero-section {
+    padding: 2rem 1rem 1.5rem;
+    min-height: 60vh;
+  }
+
+  .wwd-hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    min-height: auto;
+  }
+
+  .wwd-hero-image {
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .wwd-expertise-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .wwd-iot-cards-container,
+  .wwd-epc-cards-container,
+  .wwd-meter-cards-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .wwd-lights-showcase {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .wwd-lights-image {
+    height: 250px;
+    object-fit: cover;
+  }
+
+  /* Ensure content is visible on mobile */
+  .wwd-iot-content,
+  .wwd-epc-content,
+  .wwd-meter-content {
+    padding: 1.5rem;
+    min-height: auto;
+  }
+
+  .wwd-iot-image,
+  .wwd-epc-image,
+  .wwd-meter-image {
+    height: 200px;
+    min-height: 200px;
+  }
+
+  .wwd-iot-image img,
+  .wwd-epc-image img,
+  .wwd-meter-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .wwd-section-container {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .wwd-hero-section {
+    padding: 1.5rem 0.75rem 1rem;
+    min-height: 50vh;
+  }
+
+  .wwd-hero-image {
+    height: 250px;
+  }
+
+  .wwd-iot-image,
+  .wwd-epc-image,
+  .wwd-meter-image {
+    height: 180px;
+  }
+
+  .wwd-lights-image {
+    height: 200px;
+  }
+
+  .wwd-tech-items {
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .wwd-tech-item {
+    width: 100px;
+    padding: 0.75rem;
+  }
+}

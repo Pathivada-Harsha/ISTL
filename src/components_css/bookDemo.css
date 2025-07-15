@@ -1,0 +1,641 @@
+/* Book Demo Page Styles */
+.demo-page {
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+/* Hero Section */
+.demo-hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+}
+
+.demo-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+}
+
+.demo-hero-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+  animation: demoHeroGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes demoHeroGlow {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.demo-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.demo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.demo-hero-text {
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.demo-hero-text.demo-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-hero-text h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, #ffffff, #d1fae5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.demo-hero-text p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* Benefits Section */
+.demo-benefits {
+  padding: 6rem 0;
+  background: #f8fafc;
+  position: relative;
+}
+
+.demo-benefits::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 15% 25%, rgba(5, 150, 105, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+}
+
+.demo-section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.demo-section-header.demo-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-section-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.demo-section-header p {
+  font-size: 1.125rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.demo-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.demo-benefit-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-benefit-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #059669, #10b981, #34d399);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.demo-benefit-card:hover::before {
+  transform: scaleX(1);
+}
+
+.demo-benefit-card.demo-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-benefit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.demo-benefit-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, #059669, #10b981);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.demo-benefit-icon svg {
+  width: 40px;
+  height: 40px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.demo-benefit-card:hover .demo-benefit-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 25px rgba(5, 150, 105, 0.4);
+}
+
+.demo-benefit-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.demo-benefit-card p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Form Section */
+.demo-form-section {
+  padding: 6rem 0;
+  background: white;
+  position: relative;
+}
+
+.demo-form-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.demo-form-header {
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.demo-form-header.demo-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-form-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.demo-form-header p {
+  font-size: 1.125rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.demo-form {
+  background: #f8fafc;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.demo-form.demo-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.demo-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.demo-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.demo-form-group input,
+.demo-form-group select,
+.demo-form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.demo-form-group input:focus,
+.demo-form-group select:focus,
+.demo-form-group textarea:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.demo-form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.demo-submit-btn {
+  width: 100%;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(5, 150, 105, 0.4);
+}
+
+.demo-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.demo-submit-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.demo-submit-btn:hover:not(:disabled) svg {
+  transform: translateX(5px);
+}
+
+.demo-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: demoSpin 1s linear infinite;
+}
+
+@keyframes demoSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Contact Info */
+.demo-contact-info {
+  background: linear-gradient(135deg, #1e293b, #475569);
+  padding: 3rem;
+  border-radius: 20px;
+  color: white;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.demo-contact-info.demo-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-contact-info h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.demo-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.demo-contact-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(5px);
+}
+
+.demo-contact-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.demo-contact-icon svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.demo-contact-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.demo-contact-item p {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+/* Testimonials Section */
+.demo-testimonials {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+}
+
+.demo-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.demo-testimonial-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-testimonial-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(5, 150, 105, 0.05), rgba(16, 185, 129, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.demo-testimonial-card:hover::before {
+  opacity: 1;
+}
+
+.demo-testimonial-card.demo-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.demo-testimonial-rating {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.demo-testimonial-rating svg {
+  width: 20px;
+  height: 20px;
+  color: #fbbf24;
+}
+
+.demo-testimonial-card p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #64748b;
+  margin-bottom: 2rem;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+.demo-testimonial-author {
+  position: relative;
+  z-index: 1;
+}
+
+.demo-testimonial-author h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.demo-testimonial-author span {
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .demo-hero-text h1 {
+    font-size: 3rem;
+  }
+
+  .demo-form-wrapper {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .demo-hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .demo-benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .demo-form-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .demo-contact-info {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .demo-hero {
+    height: 50vh;
+  }
+
+  .demo-hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .demo-hero-text p {
+    font-size: 1rem;
+  }
+
+  .demo-section-header h2 {
+    font-size: 2rem;
+  }
+
+  .demo-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-form {
+    padding: 2rem;
+  }
+
+  .demo-contact-info {
+    padding: 2rem;
+  }
+
+  .demo-testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo-hero-text h1 {
+    font-size: 1.75rem;
+  }
+
+  .demo-benefit-card {
+    padding: 2rem;
+  }
+
+  .demo-form {
+    padding: 1.5rem;
+  }
+
+  .demo-contact-info {
+    padding: 1.5rem;
+  }
+
+  .demo-contact-item {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Animation delays for staggered effects */
+.demo-animate-on-scroll:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.demo-animate-on-scroll:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.demo-animate-on-scroll:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.demo-animate-on-scroll:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.demo-animate-on-scroll:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.demo-animate-on-scroll:nth-child(6) {
+  transition-delay: 0.6s;
+}

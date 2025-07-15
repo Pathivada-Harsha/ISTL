@@ -1,0 +1,1464 @@
+/* Smart Street Lights Page Styles - Compact Design */
+.streetlights-page {
+  min-height: 100vh;
+  background: #ffffff;
+ 
+}
+
+/* Hero Section - Compact */
+/* === HERO SECTION FIXES ONLY === */
+.streetlights-hero {
+  min-height: 85vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.streetlights-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.streetlights-hero-bg-image {
+  background: radial-gradient(circle at 30% 40%, rgba(255, 193, 7, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+  animation: streetlightsHeroGlow 20s ease-in-out infinite alternate;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@keyframes streetlightsHeroGlow {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.streetlights-hero .streetlights-floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.streetlights-hero .streetlights-floating-element {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: streetlightsFloat 8s ease-in-out infinite;
+}
+
+.streetlights-hero .streetlights-element-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.streetlights-hero .streetlights-element-2 {
+  top: 60%;
+  right: 15%;
+  animation-delay: 3s;
+}
+
+.streetlights-hero .streetlights-element-3 {
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 6s;
+}
+
+@keyframes streetlightsFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.streetlights-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  position: relative;
+  z-index: 2;
+}
+
+.streetlights-hero-content {
+  color: white;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+}
+
+.streetlights-hero .streetlights-product-badge {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+  flex-wrap: wrap;
+}
+
+.streetlights-hero .streetlights-product-badge.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.streetlights-hero .streetlights-smart-badge {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1a1a2e;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.streetlights-hero .streetlights-certified-badge {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.streetlights-hero-content h1 {
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(135deg, #ffffff, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.2s;
+}
+
+.streetlights-hero-content h1.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.streetlights-hero .streetlights-title-highlight {
+  display: block;
+  background: linear-gradient(135deg, #10b981, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.streetlights-hero-content p {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.4s;
+  padding: 0 1rem;
+}
+
+.streetlights-hero-content p.streetlight-animate-on-scroll {
+  opacity: 0.9;
+  transform: translateY(0);
+}
+
+.streetlights-hero .streetlights-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.6s;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+.streetlights-hero .streetlights-hero-stats.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.streetlights-hero .streetlights-stat-item {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.streetlights-hero .streetlights-stat-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.streetlights-hero .streetlights-stat-number {
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  font-weight: 800;
+  color: #fbbf24;
+  display: block;
+  line-height: 1.2;
+}
+
+.streetlights-hero .streetlights-stat-label {
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  opacity: 0.8;
+  margin-top: 0.25rem;
+  line-height: 1.3;
+}
+
+.streetlights-hero .streetlights-hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.8s;
+  flex-wrap: wrap;
+}
+
+.streetlights-hero .streetlights-hero-actions.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.streetlights-hero .streetlights-btn-primary,
+.streetlights-hero .streetlights-btn-secondary,
+.streetlights-hero .streetlights-btn-tertiary {
+  padding: 0.8rem 1.8rem;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.streetlights-hero .streetlights-btn-primary {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1a1a2e;
+}
+
+.streetlights-hero .streetlights-btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.streetlights-hero .streetlights-btn-tertiary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.streetlights-hero .streetlights-btn-primary:hover,
+.streetlights-hero .streetlights-btn-secondary:hover,
+.streetlights-hero .streetlights-btn-tertiary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* === HIDE HERO VISUAL ELEMENTS (COMMENTED OUT) === */
+.streetlights-hero .streetlights-hero-visual {
+  display: none !important;
+}
+
+.streetlights-hero .streetlights-showcase {
+  display: none !important;
+}
+
+.streetlights-hero .streetlights-main-image {
+  display: none !important;
+}
+
+.streetlights-hero .streetlights-main-image img {
+  display: none !important;
+}
+
+.streetlights-hero .streetlights-floating-cards {
+  display: none !important;
+}
+
+.streetlights-hero .streetlights-card {
+  display: none !important;
+}
+
+/* === SHARED CONTAINER STYLES === */
+.streetlights-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* === RESPONSIVE STYLES FOR HERO ONLY === */
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .streetlights-hero {
+    min-height: 75vh;
+  }
+  
+  .streetlights-hero-container {
+    min-height: 75vh;
+    padding: 2rem 1rem;
+  }
+  
+  .streetlights-hero-content {
+    max-width: 600px;
+  }
+  
+  .streetlights-hero .streetlights-product-badge {
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .streetlights-hero .streetlights-smart-badge,
+  .streetlights-hero .streetlights-certified-badge {
+    padding: 0.3rem 1rem;
+    font-size: 0.75rem;
+  }
+  
+  .streetlights-hero-content h1 {
+    margin-bottom: 1rem;
+  }
+  
+  .streetlights-hero-content p {
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .streetlights-hero .streetlights-hero-stats {
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .streetlights-hero .streetlights-stat-item {
+    padding: 0.8rem 0.6rem;
+  }
+  
+  .streetlights-hero .streetlights-hero-actions {
+    gap: 0.8rem;
+  }
+  
+  .streetlights-hero .streetlights-btn-primary,
+  .streetlights-hero .streetlights-btn-secondary {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .streetlights-hero {
+    min-height: 70vh;
+  }
+  
+  .streetlights-hero-container {
+    min-height: 70vh;
+    padding: 2rem 0.8rem;
+  }
+  
+  .streetlights-hero-content {
+    max-width: 100%;
+    padding: 1rem 0;
+  }
+  
+  .streetlights-hero .streetlights-floating-element {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .streetlights-hero .streetlights-product-badge {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .streetlights-hero .streetlights-smart-badge,
+  .streetlights-hero .streetlights-certified-badge {
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    margin: 0.2rem 0;
+  }
+  
+  .streetlights-hero-content h1 {
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .streetlights-hero-content p {
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .streetlights-hero .streetlights-hero-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    max-width: 280px;
+    padding: 0 0.5rem;
+  }
+  
+  .streetlights-hero .streetlights-stat-item {
+    padding: 0.8rem 0.6rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .streetlights-hero .streetlights-hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .streetlights-hero .streetlights-btn-primary,
+  .streetlights-hero .streetlights-btn-secondary {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.9rem;
+    min-width: 200px;
+    margin: 0.2rem 0;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .streetlights-hero {
+    min-height: 60vh;
+  }
+  
+  .streetlights-hero-container {
+    min-height: 60vh;
+    padding: 1rem 0.5rem;
+  }
+  
+  .streetlights-hero .streetlights-hero-stats {
+    max-width: 250px;
+    gap: 0.8rem;
+  }
+  
+  .streetlights-hero .streetlights-stat-item {
+    padding: 0.6rem 0.4rem;
+  }
+  
+  .streetlights-hero .streetlights-btn-primary,
+  .streetlights-hero .streetlights-btn-secondary {
+    min-width: 160px;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+  .streetlights-hero {
+    min-height: 90vh;
+  }
+  
+  .streetlights-hero-container {
+    min-height: 90vh;
+    padding: 1rem;
+  }
+  
+  .streetlights-hero-content h1 {
+    margin-bottom: 0.6rem;
+  }
+  
+  .streetlights-hero-content p {
+    margin-bottom: 1rem;
+  }
+  
+  .streetlights-hero .streetlights-hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+    max-width: 400px;
+  }
+  
+  .streetlights-hero .streetlights-hero-actions {
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+}
+
+/* 
+=== YOUR EXISTING PRODUCT OVERVIEW STYLES REMAIN UNTOUCHED ===
+Add your existing product overview CSS after this comment.
+The styles above only affect the hero section and won't interfere 
+with your product overview image container design.
+*/
+
+/* Product Overview Section */
+.streetlights-product-overview-section {
+  padding: 5rem 0;
+  background: #ffffff;
+}
+
+.streetlights-product-overview-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.streetlights-overview-images {
+  position: relative;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
+}
+
+.streetlights-overview-images.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.streetlights-image-container {
+  position: relative;
+  height: 400px;
+}
+
+.streetlights-main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75%;
+  height: 75%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+.streetlights-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.streetlights-overlay-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  height: 60%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  border: 4px solid white;
+  z-index: 2;
+}
+
+.streetlights-overlay-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.streetlights-overview-text {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease;
+}
+
+.streetlights-overview-text.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.streetlights-overview-badge {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.streetlights-overview-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.streetlights-overview-description {
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.streetlights-overview-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.streetlights-feature-row {
+  display: flex;
+  gap: 2rem;
+}
+
+.streetlights-feature-point {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex: 1;
+}
+
+.streetlights-feature-icon {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.streetlights-feature-point span {
+  font-size: 1rem;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+/* Responsive adjustments for Product Overview */
+@media (max-width: 900px) {
+  .streetlights-product-overview-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .streetlights-overview-title {
+    font-size: 2rem;
+  }
+
+  .streetlights-image-container {
+    height: 350px;
+  }
+
+  .streetlights-feature-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .streetlights-overview-title {
+    font-size: 1.8rem;
+  }
+
+  .streetlights-overview-description {
+    font-size: 1rem;
+  }
+
+  .streetlights-image-container {
+    height: 300px;
+  }
+}
+
+/* Why Choose ISTL Section */
+.streetlights-why-choose-section {
+  padding: 4rem 0;
+  background: white;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.streetlights-why-choose-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.streetlights-why-choose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.streetlights-why-item {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.streetlights-why-item.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.streetlights-why-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.streetlights-why-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.streetlights-why-item h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.8rem;
+}
+
+.streetlights-why-item p {
+  color: #64748b;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Product Series Section */
+.streetlights-series-section {
+  padding: 4rem 0;
+  background: #f8fafc;
+}
+
+.streetlights-series-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.streetlights-series-btn {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #e2e8f0;
+  background: white;
+  color: #64748b;
+  border-radius: 40px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.streetlights-series-btn.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.streetlights-series-btn:hover {
+  border-color: #fbbf24;
+  transform: translateY(-2px);
+}
+
+.streetlights-series-btn.active {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: white;
+  border-color: #fbbf24;
+  box-shadow: 0 8px 20px rgba(251, 191, 36, 0.3);
+}
+
+.streetlights-series-display {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.streetlights-series-display.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.streetlights-series-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.streetlights-series-info h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.8rem;
+}
+
+.streetlights-series-info p {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.streetlights-series-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.streetlights-spec-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.streetlights-spec-label {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.streetlights-spec-value {
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+.streetlights-series-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.streetlights-feature-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem;
+  background: #f1f5f9;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.streetlights-feature-check {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.streetlights-models-grid h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.8rem;
+}
+
+.streetlights-models {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.streetlights-model-tag {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.streetlights-series-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Features Section */
+.streetlights-features-section {
+  padding: 4rem 0;
+  background: white;
+}
+
+.streetlights-features-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.streetlights-features-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.streetlights-feature-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem;
+  background: #f8fafc;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s ease;
+}
+
+.streetlights-feature-nav-item.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.streetlights-feature-nav-item:hover {
+  border-color: #fbbf24;
+  transform: translateX(5px);
+}
+
+.streetlights-feature-nav-item.active {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: white;
+  border-color: #fbbf24;
+}
+
+.streetlights-nav-icon {
+  font-size: 2rem;
+  min-width: 50px;
+}
+
+.streetlights-nav-content h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.streetlights-nav-content p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.streetlights-features-content {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.6s ease;
+}
+
+.streetlights-features-content.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.streetlights-feature-display {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 15px;
+  border-left: 4px solid #fbbf24;
+}
+
+.streetlights-feature-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.streetlights-feature-icon-large {
+  font-size: 2.5rem;
+  min-width: 60px;
+}
+
+.streetlights-feature-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.3rem;
+}
+
+.streetlights-feature-header p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.streetlights-feature-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.streetlights-feature-details li {
+  padding: 0.6rem 0;
+  color: #64748b;
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+}
+
+.streetlights-feature-details li::before {
+  content: "•";
+  color: #fbbf24;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Applications Section */
+.streetlights-applications-section {
+  padding: 4rem 0;
+  background: #f8fafc;
+}
+
+.streetlights-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.streetlights-app-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.streetlights-app-card.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.streetlights-app-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.streetlights-app-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.streetlights-app-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.8rem;
+}
+
+.streetlights-app-card p {
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.streetlights-app-products h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.6rem;
+}
+
+.streetlights-product-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.streetlights-product-tag {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Certifications Section */
+.streetlights-certifications-section {
+  padding: 4rem 0;
+  background: white;
+}
+
+.streetlights-certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.streetlights-cert-card {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.streetlights-cert-card.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.streetlights-cert-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.streetlights-cert-card.streetlights-bis-cert {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: white;
+}
+
+.streetlights-cert-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.streetlights-cert-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.streetlights-cert-card p {
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.streetlights-bis-cert p {
+  opacity: 0.9;
+}
+
+/* CTA Section */
+.streetlights-cta-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.streetlights-cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 25% 25%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+  animation: streetlightsCtaGlow 15s ease-in-out infinite alternate;
+}
+
+@keyframes streetlightsCtaGlow {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.streetlights-cta-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.streetlights-cta-content.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.streetlights-cta-badge {
+  margin-bottom: 1.5rem;
+}
+
+.streetlights-cta-badge span {
+  background: linear-gradient(135deg, #10b981, #059669);
+  padding: 0.6rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.streetlights-cta-content h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.streetlights-cta-content p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.streetlights-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .streetlights-hero-container {
+    gap: 2.5rem;
+  }
+
+  .streetlights-hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .streetlights-features-showcase {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .streetlights-hero-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .streetlights-hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .streetlights-product-overview-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .streetlights-series-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .streetlights-features-showcase {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .streetlights-series-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .streetlights-hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .streetlights-hero-content p {
+    font-size: 1rem;
+  }
+
+  .streetlights-section-title {
+    font-size: 1.8rem;
+  }
+
+  .streetlights-series-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .streetlights-series-btn {
+    width: 200px;
+  }
+
+  .streetlights-series-content {
+    padding: 2rem;
+  }
+
+  .streetlights-cta-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .streetlights-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .streetlights-btn-primary,
+  .streetlights-btn-secondary,
+  .streetlights-btn-tertiary {
+    width: 250px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .streetlights-container {
+    padding: 0 1rem;
+  }
+
+  .streetlights-hero-container {
+    padding: 0 1rem;
+  }
+
+  .streetlights-hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .streetlights-hero-stats {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .streetlights-why-item {
+    padding: 1.5rem;
+  }
+
+  .streetlights-app-card {
+    padding: 1.5rem;
+  }
+
+  .streetlights-image-container {
+    height: 300px;
+  }
+}
+
+/* Animation delays for staggered effects */
+.streetlight-animate-on-scroll:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.streetlight-animate-on-scroll:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.streetlight-animate-on-scroll:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.streetlight-animate-on-scroll:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.streetlight-animate-on-scroll:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.streetlight-animate-on-scroll:nth-child(6) {
+  transition-delay: 0.6s;
+}
+.streetlights-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.streetlights-section-header.streetlight-animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.streetlights-section-title {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.streetlights-section-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: #64748b;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* For sections with dark backgrounds */
+.streetlights-cta-section .streetlights-section-title,
+.streetlights-hero .streetlights-section-title {
+  color: white;
+}
+
+.streetlights-cta-section .streetlights-section-subtitle,
+.streetlights-hero .streetlights-section-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive adjustments for section headers */
+@media (max-width: 768px) {
+  .streetlights-section-header {
+    margin-bottom: 2rem;
+  }
+  
+  .streetlights-section-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .streetlights-section-subtitle {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .streetlights-section-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .streetlights-section-title {
+    font-size: 1.6rem;
+  }
+  
+  .streetlights-section-subtitle {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+}

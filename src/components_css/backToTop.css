@@ -1,0 +1,288 @@
+/* Back to Top Button Styles */
+.back-to-top-container {
+  position: fixed;
+  bottom: clamp(0.75rem, 3vw, 1.5rem);
+  right: clamp(0.75rem, 3vw, 1.5rem);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px) scale(0.9);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.back-to-top-container.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top-button {
+  position: relative;
+  width: clamp(40px, 10vw, 48px);
+  height: clamp(40px, 10vw, 48px);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #475569 0%, #1e293b 100%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+.back-to-top-button:hover {
+  background: linear-gradient(135deg, #64748b 0%, #334155 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back-to-top-button:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-to-top-button:focus {
+  outline: none;
+}
+
+.back-to-top-button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Progress Ring */
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.progress-circle-bg {
+  opacity: 0.15;
+}
+
+.progress-circle {
+  transition: stroke-dashoffset 0.15s ease-out;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
+}
+
+/* Arrow Icon */
+.arrow-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  color: white;
+  transition: transform 0.2s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-icon svg {
+  width: clamp(16px, 4vw, 20px);
+  height: clamp(16px, 4vw, 20px);
+}
+
+.back-to-top-button:hover .arrow-icon {
+  transform: translate(-50%, -50%) translateY(-1px);
+}
+
+/* Hover Overlay */
+.hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  pointer-events: none;
+}
+
+.back-to-top-button:hover .hover-overlay {
+  opacity: 1;
+}
+
+/* Extra Small Devices (phones, 320px and up) */
+@media (max-width: 480px) {
+  .back-to-top-container {
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .back-to-top-button {
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .back-to-top-button:hover {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.22), 0 1px 5px rgba(0, 0, 0, 0.12);
+  }
+
+  .arrow-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Small Devices (landscape phones, 481px and up) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .back-to-top-container {
+    bottom: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .back-to-top-button {
+    width: 42px;
+    height: 42px;
+  }
+
+  .arrow-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Medium Devices (tablets, 769px and up) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .back-to-top-container {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .back-to-top-button {
+    width: 46px;
+    height: 46px;
+  }
+
+  .arrow-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+/* Large Devices (desktops, 1025px and up) */
+@media (min-width: 1025px) {
+  .back-to-top-container {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .back-to-top-button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .arrow-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top-container,
+  .back-to-top-button,
+  .arrow-icon,
+  .progress-circle,
+  .hover-overlay {
+    transition: none;
+  }
+
+  .back-to-top-button:hover {
+    transform: none;
+  }
+
+  .back-to-top-button:hover .arrow-icon {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .back-to-top-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .back-to-top-button:hover {
+    transform: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .back-to-top-button:hover .arrow-icon {
+    transform: translate(-50%, -50%);
+  }
+
+  .back-to-top-button:hover .hover-overlay {
+    opacity: 0;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .back-to-top-button {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .back-to-top-button:hover {
+    background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .hover-overlay {
+    background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .back-to-top-button {
+    background: #000000;
+    border: 1px solid #ffffff;
+  }
+
+  .progress-circle-bg {
+    stroke: #ffffff;
+    opacity: 0.4;
+  }
+
+  .progress-circle {
+    stroke: #ffffff;
+  }
+
+  .arrow-icon {
+    color: #ffffff;
+  }
+}
+
+/* Prevent horizontal scroll on very small screens */
+@media (max-width: 320px) {
+  .back-to-top-container {
+    bottom: 0.25rem;
+    right: 0.25rem;
+  }
+
+  .back-to-top-button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .arrow-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+}

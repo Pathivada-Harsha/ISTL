@@ -1,0 +1,623 @@
+.telematics-main-section {
+  min-height: 100vh;
+  padding: 80px 0;
+  background-image: url("../images/backgrounds_imgs/bg11.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.telematics-geometric-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden; /* Contain all geometric elements */
+}
+
+/* Geometric Lines - Adjusted to stay within viewport */
+.telematics-bg-line {
+  position: absolute;
+  background: linear-gradient(45deg, #3b82f6, #6366f1);
+  border-radius: 1px;
+}
+
+.telematics-line-1 {
+  width: 300px; /* Reduced from 400px */
+  height: 2px;
+  top: 10%;
+  left: 5%;
+  transform: rotate(25deg);
+  animation: telematicsFloat 8s ease-in-out infinite;
+}
+
+.telematics-line-2 {
+  width: 250px; /* Reduced from 300px */
+  height: 2px;
+  top: 15%;
+  right: 10%;
+  transform: rotate(-30deg);
+  animation: telematicsFloat 10s ease-in-out infinite reverse;
+}
+
+.telematics-line-3 {
+  width: 200px; /* Reduced from 250px */
+  height: 2px;
+  top: 25%;
+  left: 15%;
+  transform: rotate(60deg);
+  animation: telematicsFloat 7s ease-in-out infinite;
+}
+
+.telematics-line-4 {
+  width: 280px; /* Reduced from 350px */
+  height: 2px;
+  top: 35%;
+  right: 8%; /* Adjusted from 5% */
+  transform: rotate(-45deg);
+  animation: telematicsFloat 9s ease-in-out infinite reverse;
+}
+
+.telematics-line-5 {
+  width: 180px; /* Reduced from 200px */
+  height: 2px;
+  top: 45%;
+  left: 25%;
+  transform: rotate(15deg);
+  animation: telematicsFloat 6s ease-in-out infinite;
+}
+
+.telematics-line-6 {
+  width: 220px; /* Reduced from 280px */
+  height: 2px;
+  bottom: 30%;
+  right: 20%;
+  transform: rotate(-60deg);
+  animation: telematicsFloat 8s ease-in-out infinite reverse;
+}
+
+.telematics-line-7 {
+  width: 260px; /* Reduced from 320px */
+  height: 2px;
+  bottom: 20%;
+  left: 10%;
+  transform: rotate(80deg);
+  animation: telematicsFloat 11s ease-in-out infinite;
+}
+
+.telematics-line-8 {
+  width: 160px; /* Reduced from 180px */
+  height: 2px;
+  bottom: 40%;
+  right: 35%;
+  transform: rotate(-20deg);
+  animation: telematicsFloat 7s ease-in-out infinite reverse;
+}
+
+.telematics-line-9 {
+  width: 180px; /* Reduced from 220px */
+  height: 2px;
+  top: 55%;
+  left: 40%;
+  transform: rotate(45deg);
+  animation: telematicsFloat 9s ease-in-out infinite;
+}
+
+.telematics-line-10 {
+  width: 140px; /* Reduced from 160px */
+  height: 2px;
+  bottom: 15%;
+  right: 45%;
+  transform: rotate(-75deg);
+  animation: telematicsFloat 6s ease-in-out infinite reverse;
+}
+
+/* Geometric Nodes - Adjusted positions */
+.telematics-bg-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #3b82f6, #6366f1);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.telematics-node-1 {
+  top: 18%;
+  left: 20%;
+  animation: telematicsPulse 5s ease-in-out infinite;
+}
+
+.telematics-node-2 {
+  top: 28%;
+  right: 25%;
+  animation: telematicsPulse 6s ease-in-out infinite reverse;
+}
+
+.telematics-node-3 {
+  top: 48%;
+  left: 15%; /* Adjusted from 12% */
+  animation: telematicsPulse 7s ease-in-out infinite;
+}
+
+.telematics-node-4 {
+  bottom: 35%;
+  right: 20%; /* Adjusted from 18% */
+  animation: telematicsPulse 5.5s ease-in-out infinite reverse;
+}
+
+.telematics-node-5 {
+  bottom: 25%;
+  left: 30%;
+  animation: telematicsPulse 6.5s ease-in-out infinite;
+}
+
+.telematics-node-6 {
+  top: 38%;
+  right: 40%;
+  animation: telematicsPulse 8s ease-in-out infinite reverse;
+}
+
+.telematics-node-7 {
+  bottom: 45%;
+  left: 50%;
+  animation: telematicsPulse 4.5s ease-in-out infinite;
+}
+
+/* Geometric Shapes - Adjusted positions */
+.telematics-bg-shape {
+  position: absolute;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+.telematics-triangle-1 {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 50px solid rgba(59, 130, 246, 0.1);
+  border: none;
+  top: 20%;
+  right: 18%; /* Adjusted from 15% */
+  animation: telematicsRotate 15s linear infinite;
+}
+
+.telematics-triangle-2 {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 40px solid rgba(99, 102, 241, 0.1);
+  border: none;
+  bottom: 30%;
+  left: 20%;
+  animation: telematicsRotate 20s linear infinite reverse;
+}
+
+.telematics-triangle-3 {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 35px solid rgba(59, 130, 246, 0.1);
+  border: none;
+  top: 60%;
+  right: 32%; /* Adjusted from 30% */
+  animation: telematicsRotate 12s linear infinite;
+}
+
+.telematics-polygon-1 {
+  width: 40px;
+  height: 40px;
+  background: rgba(59, 130, 246, 0.05);
+  border: 2px solid rgba(59, 130, 246, 0.2);
+  transform: rotate(45deg);
+  top: 25%;
+  left: 35%;
+  animation: telematicsFloat 10s ease-in-out infinite;
+}
+
+.telematics-polygon-2 {
+  width: 30px;
+  height: 30px;
+  background: rgba(99, 102, 241, 0.05);
+  border: 2px solid rgba(99, 102, 241, 0.2);
+  border-radius: 50%;
+  bottom: 40%;
+  right: 25%;
+  animation: telematicsPulse 8s ease-in-out infinite;
+}
+
+@keyframes telematicsFloat {
+  0%, 100% { transform: translateY(0px) rotate(var(--rotation, 0deg)); }
+  50% { transform: translateY(-15px) rotate(var(--rotation, 0deg)); }
+}
+
+@keyframes telematicsPulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+  50% { 
+    transform: scale(1.8);
+    box-shadow: 0 0 35px rgba(59, 130, 246, 0.8);
+  }
+}
+
+@keyframes telematicsRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.telematics-main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+  width: 100%; /* Ensure container doesn't exceed viewport */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.telematics-header-section {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.telematics-header-icon {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.telematics-arrow-icon {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  position: relative;
+  border-radius: 2px;
+}
+
+.telematics-arrow-icon::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: -4px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid #3b82f6;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+.telematics-main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f9f9fa;
+  margin-bottom: 16px;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.telematics-main-subtitle {
+  font-size: 1.125rem;
+  color: #6794cf;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.telematics-solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+  width: 100%; /* Ensure grid doesn't exceed container */
+}
+
+.telematics-solution-card {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  height: 280px;
+  width: 100%; /* Ensure cards don't exceed grid cell */
+  box-sizing: border-box;
+}
+
+.telematics-solution-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.telematics-card-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.telematics-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease;
+}
+
+.telematics-solution-card:hover .telematics-card-image {
+  transform: scale(1.1);
+}
+
+.telematics-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.3) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  transition: background 0.4s ease;
+}
+
+.telematics-solution-card:hover .telematics-card-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(59, 130, 246, 0.4) 60%,
+    rgba(30, 41, 59, 0.9) 100%
+  );
+}
+
+.telematics-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  color: white;
+  transition: all 0.4s ease;
+}
+
+.telematics-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.telematics-card-subtitle {
+  font-size: 0.875rem;
+  opacity: 0.9;
+  line-height: 1.4;
+  transition: opacity 0.3s ease;
+}
+
+.telematics-card-hover-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 32px 24px 24px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  background: linear-gradient(
+    to bottom,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(30, 41, 59, 0.95) 100%
+  );
+}
+
+.telematics-solution-card:hover .telematics-card-content {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.telematics-solution-card:hover .telematics-card-hover-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.telematics-hover-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.3;
+  color: white;
+}
+
+.telematics-hover-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.telematics-learn-more-btn {
+  background: transparent;
+  color: #3b82f6;
+  border: 2px solid #3b82f6;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+}
+
+.telematics-learn-more-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #3b82f6;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.telematics-learn-more-btn:hover {
+  color: white;
+  border-color: #3b82f6;
+}
+
+.telematics-learn-more-btn:hover::before {
+  width: 100%;
+}
+
+.telematics-btn-arrow {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.telematics-learn-more-btn:hover .telematics-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .telematics-solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .telematics-main-title {
+    font-size: 2.25rem;
+  }
+  
+  /* Reduce geometric elements on smaller screens */
+  .telematics-line-1, .telematics-line-2, .telematics-line-3, 
+  .telematics-line-4, .telematics-line-5, .telematics-line-6,
+  .telematics-line-7, .telematics-line-8, .telematics-line-9, 
+  .telematics-line-10 {
+    width: 80% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .telematics-main-section {
+    padding: 60px 0;
+  }
+  
+  .telematics-solutions-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .telematics-solution-card {
+    height: 250px;
+  }
+  
+  .telematics-main-title {
+    font-size: 2rem;
+  }
+  
+  .telematics-main-subtitle {
+    font-size: 1rem;
+  }
+  
+  .telematics-main-container {
+    padding: 0 16px;
+  }
+  
+  /* Hide some geometric elements on mobile for better performance */
+  .telematics-line-6, .telematics-line-7, .telematics-line-8,
+  .telematics-node-5, .telematics-node-6, .telematics-node-7 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .telematics-main-title {
+    font-size: 1.75rem;
+  }
+  
+  .telematics-solution-card {
+    height: 220px;
+  }
+  
+  .telematics-card-content,
+  .telematics-card-hover-content {
+    padding: 20px 16px 16px;
+  }
+  
+  .telematics-hover-title {
+    font-size: 1.25rem;
+  }
+  
+  .telematics-hover-description {
+    font-size: 0.875rem;
+  }
+  
+  /* Hide more geometric elements on very small screens */
+  .telematics-line-9, .telematics-line-10,
+  .telematics-triangle-2, .telematics-triangle-3 {
+    display: none;
+  }
+}
+
+/* Animation delays for staggered entrance */
+.telematics-solution-card:nth-child(1) { animation-delay: 0.1s; }
+.telematics-solution-card:nth-child(2) { animation-delay: 0.2s; }
+.telematics-solution-card:nth-child(3) { animation-delay: 0.3s; }
+.telematics-solution-card:nth-child(4) { animation-delay: 0.4s; }
+.telematics-solution-card:nth-child(5) { animation-delay: 0.5s; }
+.telematics-solution-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes telematicsSlideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.telematics-solution-card {
+  animation: telematicsSlideInUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+/* Global overflow fix */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+}

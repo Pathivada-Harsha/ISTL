@@ -1,0 +1,1068 @@
+
+
+body {
+  line-height: 1.6;
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+.powertd-page {
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+.powertd-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+/* Hero Section */
+.powertd-hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+  overflow: hidden;
+}
+
+.powertd-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.powertd-gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.3;
+  animation: powertd-float 6s ease-in-out infinite;
+}
+
+.powertd-orb-1 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, #ff6b6b, #feca57);
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.powertd-orb-2 {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #48cae4, #023e8a);
+  top: 60%;
+  right: 20%;
+  animation-delay: 2s;
+}
+
+.powertd-orb-3 {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, #06ffa5, #00d4aa);
+  bottom: 20%;
+  left: 60%;
+  animation-delay: 4s;
+}
+
+@keyframes powertd-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.powertd-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.powertd-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 8px 20px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  animation: powertd-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes powertd-glow {
+  from {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.powertd-hero-title {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: white;
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: powertd-slide-up 1s ease-out 0.3s forwards;
+}
+
+.powertd-gradient-text {
+  background: linear-gradient(45deg, #87ceeb, #00bfff, #fef65b);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: powertd-gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes powertd-gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.powertd-hero-description {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 40px;
+  max-width: 600px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: powertd-slide-up 1s ease-out 0.6s forwards;
+}
+
+.powertd-hero-buttons {
+  display: flex;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: powertd-slide-up 1s ease-out 0.9s forwards;
+}
+
+.powertd-btn-primary,
+.powertd-btn-secondary {
+  position: relative;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.powertd-btn-primary {
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  color: #1a1a1a;
+}
+
+.powertd-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+}
+
+.powertd-btn-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.powertd-btn-primary:hover .powertd-btn-glow {
+  left: 100%;
+}
+
+@keyframes powertd-slide-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product Overview Section */
+.powertd-product-section {
+  padding: 30px 0;
+  background: white;
+  position: relative;
+}
+
+.powertd-product-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.powertd-product-badge {
+  display: inline-block;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.powertd-product-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+}
+
+.powertd-product-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.powertd-product-features {
+  margin-top: 40px;
+}
+
+.powertd-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.powertd-feature-item:hover {
+  background: #e9ecef;
+  transform: translateX(10px);
+}
+
+.powertd-feature-check {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.powertd-product-image {
+  position: relative;
+  margin-top: 180px;
+}
+
+.powertd-product-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* Networks Section - Hover for Desktop, Click for Mobile */
+.powertd-networks-section {
+  padding: 50px 0;
+  background: #fafafa;
+  position: relative;
+}
+
+.powertd-section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.powertd-section-badge {
+  display: inline-block;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.powertd-section-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.powertd-section-description {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.powertd-networks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.powertd-network-card {
+  height: 600px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.powertd-networks-section.powertd-animate-in .powertd-network-card {
+  animation: powertd-card-appear 0.8s ease-out forwards;
+}
+
+.powertd-networks-section.powertd-animate-in .powertd-network-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+@keyframes powertd-card-appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Simplified Card Structure */
+.powertd-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.powertd-card-front,
+.powertd-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  backface-visibility: hidden;
+}
+
+.powertd-card-front {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.powertd-card-back {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  opacity: 0;
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* Desktop Hover Behavior - Only for large screens */
+@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
+  .powertd-network-card {
+    cursor: pointer;
+  }
+
+  .powertd-network-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+  }
+
+  .powertd-network-card:hover .powertd-card-front {
+    opacity: 0;
+    transform: rotateY(-180deg);
+    z-index: 1;
+  }
+
+  .powertd-network-card:hover .powertd-card-back {
+    opacity: 1;
+    transform: rotateY(0deg);
+    z-index: 2;
+  }
+}
+
+/* Mobile/Tablet Click Behavior - For smaller screens and touch devices */
+@media (max-width: 1024px), (hover: none), (pointer: coarse) {
+  .powertd-network-card {
+    cursor: pointer;
+  }
+
+  .powertd-network-card:active {
+    transform: scale(0.98);
+  }
+
+  /* Flipped State for Mobile - Controlled by React state */
+  .powertd-network-card.flipped .powertd-card-front {
+    opacity: 0;
+    transform: rotateY(-180deg);
+    z-index: 1;
+  }
+
+  .powertd-network-card.flipped .powertd-card-back {
+    opacity: 1;
+    transform: rotateY(0deg);
+    z-index: 2;
+  }
+}
+
+.powertd-card-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.powertd-card-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.powertd-card-content-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  color: white;
+  width: 90%;
+  max-width: 400px;
+}
+
+.powertd-card-content-overlay .powertd-card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.powertd-card-content-overlay .powertd-card-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  line-height: 1.4;
+}
+
+.powertd-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 1;
+}
+
+.powertd-card-back-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.powertd-content-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.powertd-content-lines p {
+  margin: 0;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Features Section */
+.powertd-features-section {
+  padding: 60px 0;
+  background: white;
+}
+
+.powertd-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.powertd-feature-card {
+  text-align: center;
+  padding: 40px 30px;
+  border-radius: 20px;
+  background: #fafafa;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.powertd-feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border-color: #667eea;
+}
+
+.powertd-feature-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.powertd-feature-icon-bg {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: powertd-pulse 2s ease-in-out infinite;
+}
+
+@keyframes powertd-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.2;
+  }
+}
+
+.powertd-feature-icon {
+  font-size: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.powertd-feature-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.powertd-feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Stats Section */
+.powertd-stats-section {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: white;
+}
+
+.powertd-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 60px;
+  text-align: center;
+}
+
+.powertd-stat-item {
+  position: relative;
+}
+
+.powertd-stat-item::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  border-radius: 2px;
+}
+
+.powertd-stat-number {
+  font-size: clamp(3rem, 5vw, 4rem);
+  font-weight: 800;
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 10px;
+}
+
+.powertd-stat-label {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+/* Contact Section */
+.powertd-contact-section {
+  padding: 120px 0;
+  background: #fafafa;
+}
+
+.powertd-contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.powertd-contact-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+}
+
+.powertd-contact-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.powertd-contact-features {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.powertd-contact-feature {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.powertd-contact-icon {
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.powertd-contact-feature h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 5px;
+}
+
+.powertd-contact-feature p {
+  color: #666;
+}
+
+.powertd-contact-form-wrapper {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.powertd-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.powertd-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.powertd-form-group label {
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 14px;
+}
+
+.powertd-form-group input,
+.powertd-form-group select,
+.powertd-form-group textarea {
+  padding: 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.powertd-form-group input:focus,
+.powertd-form-group select:focus,
+.powertd-form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.powertd-form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.powertd-form-submit {
+  position: relative;
+  padding: 18px 32px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.powertd-form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.powertd-form-submit:hover .powertd-btn-glow {
+  left: 100%;
+}
+
+.powertd-animate-in {
+  animation: powertd-fade-in-up 1s ease-out forwards;
+}
+
+@keyframes powertd-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .powertd-product-content,
+  .powertd-contact-content {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .powertd-networks-grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    gap: 50px;
+  }
+
+  .powertd-product-image {
+    margin-top: 3px;
+  }
+
+  .powertd-network-card {
+    height: 550px;
+    min-height: 550px;
+  }
+
+  .powertd-card-back {
+    padding: 35px;
+  }
+
+  .powertd-content-lines {
+    padding: 20px;
+    gap: 12px;
+  }
+
+  .powertd-content-lines p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 768px) {
+  .powertd-product-image {
+    margin-top: 3px;
+  }
+
+  .powertd-container {
+    padding: 0 16px;
+  }
+
+  .powertd-hero {
+    padding: 60px 0;
+  }
+
+  .powertd-hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .powertd-btn-primary,
+  .powertd-btn-secondary {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .powertd-networks-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 100%;
+  }
+
+  .powertd-network-card {
+    height: 500px;
+    min-height: 500px;
+    max-width: 100%;
+  }
+
+  .powertd-features-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .powertd-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .powertd-contact-form-wrapper {
+    padding: 30px 20px;
+  }
+
+  .powertd-card-content-overlay .powertd-card-title {
+    font-size: 1.8rem;
+  }
+
+  .powertd-card-content-overlay .powertd-card-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .powertd-card-back {
+    padding: 30px;
+  }
+
+  .powertd-card-back-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  .powertd-content-lines {
+    padding: 18px;
+    gap: 10px;
+  }
+
+  .powertd-content-lines p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .powertd-networks-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 10px;
+  }
+
+  .powertd-network-card {
+    min-width: unset;
+    height: 400px;
+    min-height: 400px;
+    width: 100%;
+  }
+
+  .powertd-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .powertd-contact-features {
+    gap: 20px;
+  }
+
+  .powertd-contact-feature {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .powertd-product-image {
+    margin-top: 3px;
+  }
+
+  .powertd-card-back {
+    padding: 20px 15px;
+  }
+
+  .powertd-content-lines {
+    padding: 15px;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .powertd-card-back-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .powertd-content-lines p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .powertd-card-content-overlay .powertd-card-title {
+    font-size: 1.4rem;
+  }
+
+  .powertd-card-content-overlay .powertd-card-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .powertd-network-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .powertd-card-front,
+  .powertd-card-back {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+}
+
+@media (max-width: 360px) {
+  .powertd-network-card {
+    height: 350px;
+    min-height: 350px;
+  }
+
+  .powertd-card-back {
+    padding: 15px 10px;
+  }
+
+  .powertd-content-lines {
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .powertd-content-lines p {
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .powertd-card-back-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .powertd-card-content-overlay .powertd-card-title {
+    font-size: 1.2rem;
+  }
+
+  .powertd-card-content-overlay .powertd-card-subtitle {
+    font-size: 0.8rem;
+  }
+}
+
+/* Focus states for accessibility */
+.powertd-network-card:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 4px;
+}
+
+.powertd-network-card:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+  .powertd-hero-badge,
+  .powertd-content-lines {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Fallback for browsers that don't support background-clip: text */
+@supports not (background-clip: text) {
+  .powertd-gradient-text,
+  .powertd-card-content-overlay .powertd-card-title,
+  .powertd-stat-number {
+    color: #ffd700;
+    background: none;
+  }
+}
+
+/* Force GPU acceleration for better performance */
+.powertd-network-card,
+.powertd-card-inner,
+.powertd-card-front,
+.powertd-card-back {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}

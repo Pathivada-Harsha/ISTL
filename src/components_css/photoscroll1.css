@@ -1,0 +1,679 @@
+.ps-scrolled-container {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  height: 200vh; /* 2 sections * 100vh */
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-size: cover;
+  background-position: center;
+  background-attachment: local;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.ps-scrolled-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 30, 60, 0.3) 30%,
+    rgba(0, 0, 0, 0.2) 60%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ps-content-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 2rem;
+  z-index: 10;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+.ps-content-section.ps-left {
+  justify-content: flex-start;
+}
+
+.ps-content-section.ps-center {
+  justify-content: center;
+}
+
+.ps-content-section.ps-right {
+  justify-content: flex-end;
+}
+
+.ps-content-wrapper {
+  max-width: 800px;
+  color: white;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: transparent;
+  backdrop-filter: none;
+  border-radius: 0;
+  padding: 2rem;
+  border: none;
+  box-shadow: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ps-title-container {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin-bottom: 1.2rem;
+  width: 100%;
+}
+
+.ps-main-title {
+  font-size: clamp(2rem, 5vw, 3rem); /* Increased mobile font size */
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(45deg, #00ff88, #00d4ff, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.1; /* Tighter line height */
+}
+
+/* Four-line title styles */
+.ps-four-line-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  margin: 0 0 1rem 0;
+}
+
+.ps-title-line {
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  background: linear-gradient(45deg, #00ff88, #00d4ff, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  line-height: 1.1;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.ps-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem); /* Increased mobile font size */
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin: 0 0 1.5rem 0;
+  color: #00ff88;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.3;
+}
+
+.ps-description-container {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 100%;
+}
+
+.ps-description {
+  font-size: clamp(0.9rem, 2vw, 1.1rem); /* Increased mobile font size */
+  line-height: 1.5; /* Improved line height */
+  margin: 0;
+  opacity: 0.95;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.ps-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: ps-float 3s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.ps-scroll-line {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, #00d4ff, transparent);
+  position: relative;
+}
+
+.ps-scroll-line::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: -4px;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #00d4ff;
+  border-bottom: 2px solid #00d4ff;
+  transform: rotate(45deg);
+}
+
+@keyframes ps-float {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-15px);
+  }
+}
+
+.ps-cta-button {
+  background: linear-gradient(45deg, #00d4ff, #0099cc);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+}
+
+.ps-cta-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.5);
+  background: linear-gradient(45deg, #0099cc, #00d4ff);
+}
+
+/* Typing Animation Styles */
+.ps-typing-container-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  z-index: 15;
+  text-align: center;
+  width: 100%;
+  max-width: 90vw;
+  padding: 0 1rem;
+  pointer-events: none;
+  opacity: 0;
+  box-sizing: border-box;
+}
+
+.ps-typing-container-middle .ps-title-container {
+  margin-top: 15px;
+  position: relative;
+}
+
+.ps-typing-container-middle .ps-title-wrapper {
+  padding: 5px 0;
+  position: relative;
+  display: inline-block;
+}
+
+.ps-typing-container-middle .ps-title-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.8), transparent);
+}
+
+/* Single line typing text for larger screens */
+.ps-typing-text-middle {
+  font-size: clamp(1.4rem, 4vw, 2.2rem); /* Increased mobile font size */
+  margin: 0;
+  font-weight: 700;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(45deg, #00ff88, #00d4ff, #ffffff, #ffd700);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  min-height: 1.2em;
+  display: inline-block;
+  position: relative;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+  line-height: 1.2;
+}
+
+/* Single line specific styling */
+.ps-typing-single-line {
+  white-space: nowrap;
+  overflow: visible;
+  max-width: 90vw;
+}
+
+/* Multi-line typing text styles for very small screens */
+.ps-typing-multiline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+.ps-typing-line {
+  font-size: clamp(1.2rem, 3vw, 1.8rem); /* Increased mobile font size */
+  font-weight: 700;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(45deg, #00ff88, #00d4ff, #ffffff, #ffd700);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
+  max-width: 100%;
+  line-height: 1.2;
+}
+
+.ps-typing-cursor {
+  background: linear-gradient(45deg, #00ff88, #00d4ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: ps-blink-new 0.75s step-end infinite;
+  margin-left: 2px;
+  font-weight: 100;
+}
+
+.ps-typing-effect {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: ps-typing 3.5s steps(40, end);
+  padding-right: 5px;
+}
+
+@keyframes ps-typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes ps-blink-new {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Desktop and Large Screens */
+@media (min-width: 1200px) {
+  .ps-typing-text-middle {
+    font-size: clamp(2rem, 2.5vw, 2.8rem);
+  }
+
+  .ps-main-title {
+    font-size: clamp(2.5rem, 3.5vw, 3.8rem);
+  }
+
+  .ps-title-line {
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+  }
+
+  .ps-subtitle {
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  }
+
+  .ps-description {
+    font-size: clamp(1.1rem, 1.2vw, 1.2rem);
+  }
+}
+
+/* Tablet Screens */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .ps-content-section {
+    padding: 0 1.5rem;
+  }
+
+  .ps-content-wrapper {
+    max-width: 90%;
+    padding: 2rem 1.5rem; /* Increased padding */
+  }
+
+  .ps-main-title {
+    font-size: clamp(1.8rem, 4.5vw, 3rem);
+    line-height: 1.1;
+  }
+
+  .ps-title-line {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+  }
+
+  .ps-subtitle {
+    font-size: clamp(0.9rem, 2.2vw, 1.2rem);
+  }
+
+  .ps-description {
+    font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+    line-height: 1.5;
+  }
+
+  .ps-typing-container-middle {
+    padding: 0 1rem;
+    max-width: 95vw;
+  }
+
+  .ps-typing-text-middle {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+  }
+
+  .ps-typing-single-line {
+    max-width: 90vw;
+  }
+}
+
+/* Mobile Landscape and Small Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .ps-content-section {
+    padding: 0 1rem;
+    height: 85vh; /* Reduced height to minimize gaps */
+  }
+
+  .ps-content-section:first-child {
+    align-items: center; /* Center content */
+    padding-top: 0;
+  }
+
+  .ps-content-wrapper {
+    max-width: 100%;
+    padding: 2rem 1rem; /* Increased padding */
+  }
+
+  .ps-main-title {
+    font-size: clamp(1.6rem, 6vw, 2.4rem); /* Increased font size */
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .ps-title-line {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+
+  .ps-four-line-title {
+    gap: 0.1rem;
+  }
+
+  .ps-subtitle {
+    font-size: clamp(0.85rem, 3.5vw, 1.1rem); /* Increased font size */
+    margin-bottom: 1.2rem;
+  }
+
+  .ps-description {
+    font-size: clamp(0.8rem, 3vw, 1rem); /* Increased font size */
+    line-height: 1.4;
+  }
+
+  .ps-typing-container-middle {
+    padding: 0 0.8rem;
+    top: 50%;
+    max-width: 95vw;
+  }
+
+  .ps-typing-text-middle {
+    font-size: clamp(1.3rem, 4.5vw, 1.8rem); /* Increased font size */
+  }
+
+  .ps-typing-single-line {
+    max-width: 90vw;
+    white-space: normal;
+  }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+  .ps-scrolled-container {
+    height: 180vh; /* Reduced container height */
+  }
+
+  .ps-content-section {
+    height: 90vh; /* Reduced section height */
+    padding: 0 0.8rem;
+  }
+
+  .ps-content-section:first-child {
+    align-items: center; /* Center content instead of flex-start */
+    padding-top: 0;
+  }
+
+  .ps-content-wrapper {
+    padding: 2.5rem 0.8rem; /* Increased padding */
+    max-width: 100%;
+  }
+
+  .ps-main-title {
+    font-size: clamp(1.4rem, 6.5vw, 2rem); /* Significantly increased */
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .ps-title-line {
+    font-size: clamp(1.2rem, 7vw, 1.8rem);
+  }
+
+  .ps-four-line-title {
+    gap: 0.05rem;
+  }
+
+  .ps-subtitle {
+    font-size: clamp(0.75rem, 4vw, 1rem); /* Increased font size */
+    margin-bottom: 1.2rem;
+  }
+
+  .ps-description {
+    font-size: clamp(0.8rem, 3.5vw, 1rem); /* Increased font size */
+    line-height: 1.4;
+  }
+
+  .ps-typing-container-middle {
+    top: 50%;
+    padding: 0 0.8rem;
+    max-width: 95vw;
+  }
+
+  .ps-typing-text-middle {
+    font-size: clamp(1rem, 4.5vw, 1.4rem); /* Increased font size */
+    line-height: 1.2;
+  }
+
+  .ps-typing-single-line {
+    white-space: normal;
+    max-width: 90vw;
+  }
+
+  .ps-typing-line {
+    font-size: clamp(0.9rem, 4vw, 1.2rem); /* Increased font size */
+    line-height: 1.2;
+  }
+
+  .ps-typing-multiline {
+    gap: 0.4rem;
+  }
+}
+
+/* Very Small Screens */
+@media (max-width: 375px) {
+  .ps-scrolled-container {
+    height: 170vh; /* Further reduced container height */
+  }
+
+  .ps-content-section {
+    height: 85vh; /* Further reduced section height */
+    padding: 0 0.6rem;
+  }
+
+  .ps-content-wrapper {
+    padding: 2.5rem 0.6rem; /* Increased padding */
+  }
+
+  .ps-main-title {
+    font-size: clamp(1.3rem, 7vw, 1.8rem); /* Increased font size */
+    line-height: 1.1;
+  }
+
+  .ps-title-line {
+    font-size: clamp(1.1rem, 8vw, 1.6rem);
+  }
+
+  .ps-subtitle {
+    font-size: clamp(0.7rem, 4.5vw, 0.9rem); /* Increased font size */
+  }
+
+  .ps-description {
+    font-size: clamp(0.75rem, 4vw, 0.9rem); /* Increased font size */
+    line-height: 1.4;
+  }
+
+  .ps-typing-container-middle {
+    padding: 0 0.6rem;
+  }
+
+  .ps-typing-text-middle {
+    font-size: clamp(0.9rem, 5vw, 1.2rem); /* Increased font size */
+  }
+
+  .ps-typing-line {
+    font-size: clamp(0.85rem, 4.5vw, 1.1rem); /* Increased font size */
+  }
+
+  .ps-typing-single-line {
+    max-width: 85vw;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .ps-scrolled-container {
+    height: 200vh; /* Keep normal height in landscape */
+  }
+
+  .ps-content-section {
+    height: 100vh; /* Full height in landscape */
+  }
+
+  .ps-typing-container-middle {
+    top: 50%;
+  }
+
+  .ps-typing-text-middle,
+  .ps-typing-line {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+  }
+
+  .ps-content-section:first-child {
+    padding-top: 0;
+    align-items: center;
+  }
+}
+
+/* Fix overlapping issues */
+@media (max-width: 768px) {
+  .ps-content-section:first-child {
+    align-items: center; /* Center instead of flex-start */
+    justify-content: center;
+    padding-top: 0;
+  }
+
+  .ps-content-section:first-child .ps-content-wrapper {
+    margin-top: 0;
+    transform: none !important;
+  }
+
+  /* Reduce horizontal transforms on mobile */
+  .ps-title-container {
+    transform: none !important;
+  }
+}
+
+/* Ensure proper spacing between sections */
+.ps-content-section:not(:first-child) {
+  margin-top: 0;
+}
+
+/* Large screen optimizations */
+@media (min-width: 1400px) {
+  .ps-typing-text-middle {
+    font-size: clamp(2.2rem, 2.5vw, 3rem);
+  }
+
+  .ps-main-title {
+    font-size: clamp(2.8rem, 3.5vw, 4.2rem);
+  }
+
+  .ps-title-line {
+    font-size: clamp(2.4rem, 3.5vw, 3.6rem);
+  }
+
+  .ps-subtitle {
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  }
+
+  .ps-description {
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+  }
+}
+
+/* Global fix for horizontal scrolling */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Ensure all text elements don't cause overflow */
+.ps-main-title,
+.ps-title-line,
+.ps-subtitle,
+.ps-description,
+.ps-typing-text-middle,
+.ps-typing-line {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}

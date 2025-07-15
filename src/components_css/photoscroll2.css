@@ -1,0 +1,191 @@
+.ps-scrolled-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  height: 200vh; /* 2 sections * 100vh */
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-size: cover;
+  background-position: center;
+  background-attachment: local;
+}
+
+.ps-scrolled-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 30, 60, 0.3) 30%,
+    rgba(0, 0, 0, 0.2) 60%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ps-content-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 2rem;
+  z-index: 10;
+}
+
+.ps-content-section.ps-left {
+  justify-content: flex-start;
+}
+
+.ps-content-section.ps-center {
+  justify-content: center;
+}
+
+.ps-content-section.ps-right {
+  justify-content: flex-end;
+}
+
+.ps-content-wrapper {
+  max-width: 800px;
+  color: white;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: transparent;
+  backdrop-filter: none;
+  border-radius: 0;
+  padding: 2rem;
+  border: none;
+  box-shadow: none;
+}
+
+.ps-title-container {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin-bottom: 1.2rem;
+}
+
+.ps-main-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(45deg, #00ff88, #00d4ff, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.ps-subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin: 0 0 1.5rem 0;
+  color: #00ff88;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.ps-description-container {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ps-description {
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.95;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.ps-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: ps-float 3s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.ps-scroll-line {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, #00d4ff, transparent);
+  position: relative;
+}
+
+.ps-scroll-line::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: -4px;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #00d4ff;
+  border-bottom: 2px solid #00d4ff;
+  transform: rotate(45deg);
+}
+
+@keyframes ps-float {
+  0%, 100% { 
+    transform: translateX(-50%) translateY(0); 
+  }
+  50% { 
+    transform: translateX(-50%) translateY(-15px); 
+  }
+}
+
+.ps-cta-button {
+  background: linear-gradient(45deg, #00d4ff, #0099cc);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+}
+
+.ps-cta-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.5);
+  background: linear-gradient(45deg, #0099cc, #00d4ff);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .ps-content-section {
+    padding: 0 1rem;
+  }
+  
+  .ps-content-wrapper {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+  
+  .ps-main-title {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+  
+  .ps-subtitle {
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
+  }
+  
+  .ps-description {
+    font-size: clamp(0.75rem, 3vw, 0.9rem);
+  }
+}

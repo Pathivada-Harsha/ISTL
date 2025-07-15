@@ -1,0 +1,174 @@
+.habo-about-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  gap: 2rem;
+}
+
+.habo-about-content {
+  flex: 1;
+}
+
+.habo-about-content h2 {
+  color: #1d4ed8;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.habo-about-content h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.habo-about-content p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.habo-learn-more-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.habo-learn-more-link {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.habo-learn-more-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.habo-image-gallery {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  height: 400px;
+}
+
+.habo-gallery-wrapper {
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+  transition: flex 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  height: 100%;
+}
+
+.habo-gallery-wrapper-default {
+  flex: 1;
+}
+
+.habo-gallery-wrapper-expanded {
+  flex: 2.5;
+}
+
+.habo-gallery-wrapper-compressed {
+  flex: 0.5;
+}
+
+.habo-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.habo-gallery-wrapper:hover .habo-gallery-img {
+  transform: scale(1.02);
+}
+
+.habo-carousel-container {
+  position: relative;
+  text-align: center;
+}
+
+.habo-carousel-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.habo-carousel-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.habo-carousel-controls button {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.habo-title
+{
+   color: #27ae60;
+}
+@media screen and (min-width: 1025px) {
+  .habo-about-container {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .habo-about-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .habo-image-gallery {
+    flex: 1;
+    align-self: stretch;
+    height: auto;
+    min-height: 400px;
+  }
+
+  .habo-carousel-container,
+  .habo-carousel-controls {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .habo-image-gallery {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .habo-about-container {
+    padding: 1rem;
+  }
+
+  .habo-about-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .habo-learn-more-btn {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.8rem;
+  }
+}

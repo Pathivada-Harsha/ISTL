@@ -1,0 +1,486 @@
+/* ========================================
+   SCROLL SECTIONS COMPONENT STYLES
+   ======================================== */
+
+/* Base wrapper styles */
+.scroll-sections-wrapper {
+  position: relative;
+  padding: 60px 20px; /* Reduced from 80px */
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(135deg, #fafbff 0%, #f0f4ff 50%, #e6f0ff 100%);
+  min-height: auto;
+}
+
+.scroll-sections-wrapper.mobile {
+  padding: 40px 16px;
+}
+
+/* Background design elements */
+.scroll-bg-design {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.03) 0%, transparent 50%), 
+              radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+  z-index: 0;
+}
+
+/* Header section */
+.scroll-header {
+  text-align: center;
+  margin-bottom: 60px; /* Reduced from 80px */
+  position: relative;
+  z-index: 1;
+}
+
+.scroll-header.mobile {
+  margin-bottom: 40px;
+}
+
+.scroll-main-heading {
+  font-size: clamp(2rem, 4vw, 3.5rem); /* Reduced from clamp(2.5rem, 5vw, 4rem) */
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 16px; /* Reduced from 20px */
+  background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.scroll-main-heading.mobile {
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+}
+
+.scroll-main-subtitle {
+  font-size: 1.125rem; /* Reduced from 1.25rem */
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.scroll-main-subtitle.mobile {
+  font-size: 1rem;
+}
+
+/* Content layout */
+.scroll-content-layout {
+  display: flex;
+  max-width: 1200px; /* Reduced from 1400px */
+  margin: 0 auto;
+  gap: 40px; /* Reduced from 60px */
+  position: relative;
+  z-index: 1;
+  min-height: calc(100vh + 200px);
+}
+
+.scroll-content-layout.mobile {
+  display: block;
+  gap: 0;
+  min-height: auto;
+}
+
+/* Content area */
+.scroll-content-area {
+  flex: 1;
+  max-width: 550px; /* Reduced from 600px */
+  width: 100%;
+}
+
+.scroll-content-area.mobile {
+  flex: none;
+  max-width: 100%;
+}
+
+/* Mobile section styling */
+.scroll-mobile-section {
+  margin-bottom: 40px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.scroll-mobile-image-container {
+  width: 100%;
+  height: 250px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-mobile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Desktop content block */
+.scroll-content-block {
+  min-height: 350px; /* Reduced from 400px */
+  padding: 30px 0; /* Reduced from 40px */
+  position: relative;
+}
+
+.scroll-content-block.mobile {
+  min-height: auto;
+  padding: 0;
+}
+
+/* Section headings */
+.scroll-section-heading {
+  font-size: 1.875rem; /* Reduced from 2.25rem */
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 30px; /* Reduced from 40px */
+  line-height: 1.2;
+  position: relative;
+}
+
+.scroll-section-heading.mobile {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.scroll-section-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px; /* Reduced from -10px */
+  width: 50px; /* Reduced from 60px */
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  border-radius: 2px;
+}
+
+/* Features list */
+.scroll-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.scroll-feature-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px; /* Reduced from 24px */
+  padding: 16px; /* Reduced from 20px */
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px; /* Reduced from 16px */
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  cursor: default;
+}
+
+.scroll-feature-item.mobile {
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+.scroll-feature-item:hover {
+  transform: translateX(6px) translateY(0); /* Reduced from 8px */
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1); /* Reduced shadow */
+}
+
+.scroll-check-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; /* Reduced from 28px */
+  height: 24px; /* Reduced from 28px */
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 50%;
+  margin-right: 14px; /* Reduced from 16px */
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3); /* Reduced shadow */
+}
+
+.scroll-check-icon {
+  width: 14px; /* Reduced from 16px */
+  height: 14px; /* Reduced from 16px */
+  color: white;
+}
+
+.scroll-feature-text {
+  color: #475569;
+  line-height: 1.6;
+  font-size: 0.95rem; /* Reduced from 1rem */
+}
+
+.scroll-feature-text.mobile {
+  font-size: 0.9rem;
+}
+
+/* Desktop image area - Made more square and compact */
+.scroll-image-area {
+  flex: 0 0 450px; /* Fixed width instead of flex: 1, reduced from 600px */
+  max-width: 450px; /* Reduced from 600px */
+  position: relative;
+  height: auto;
+  min-height: 450px; /* Reduced from 600px to make it square */
+}
+
+.scroll-image-area.mobile {
+  display: none;
+}
+
+.scroll-image-container {
+  position: sticky;
+  top: 100px; /* Reduced from 120px */
+  width: 100%;
+  height: 450px; /* Reduced from 600px to make it square */
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-image-container.unstuck {
+  position: absolute !important;
+  top: auto !important;
+  bottom: 0 !important;
+  transform: translateY(0);
+  margin-top: 0;
+}
+
+.scroll-image-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px; /* Reduced from 24px */
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), /* Reduced shadow intensity */
+              0 0 0 1px rgba(255, 255, 255, 0.5), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transform: perspective(1000px) rotateY(-3deg) rotateX(1deg); /* Reduced rotation */
+  transition: transform 0.4s ease;
+}
+
+.scroll-image-frame:hover {
+  transform: perspective(1000px) rotateY(-1deg) rotateX(0.5deg) scale(1.02);
+}
+
+.scroll-image-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(0.95) translateZ(0);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-image-slide.active {
+  opacity: 1;
+  transform: scale(1) translateZ(0);
+}
+
+.scroll-section-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.scroll-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Floating title */
+.scroll-floating-title {
+  position: absolute;
+  bottom: 24px; /* Reduced from 30px */
+  left: 24px; /* Reduced from 30px */
+  right: 24px; /* Reduced from 30px */
+  z-index: 10;
+}
+
+.scroll-title-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 20px; /* Reduced from 24px */
+  border-radius: 14px; /* Reduced from 16px */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); /* Reduced shadow */
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-title-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6);
+}
+
+.scroll-current-title {
+  font-size: 1.125rem; /* Reduced from 1.25rem */
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* End spacer */
+.scroll-end-spacer {
+  height: 80px; /* Reduced from 100px */
+}
+
+.scroll-end-spacer.mobile {
+  height: 40px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .scroll-content-layout {
+    gap: 30px; /* Reduced from 40px */
+    max-width: 1000px; /* Reduced for medium screens */
+  }
+
+  .scroll-image-area {
+    flex: 0 0 400px; /* Reduced for medium screens */
+    max-width: 400px;
+    min-height: 400px;
+  }
+
+  .scroll-image-container {
+    height: 400px;
+  }
+
+  .scroll-image-frame {
+    transform: none;
+  }
+
+  .scroll-image-frame:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-sections-wrapper {
+    padding: 40px 16px;
+  }
+
+  .scroll-content-layout {
+    display: block;
+    gap: 0;
+    min-height: auto;
+  }
+
+  .scroll-content-area {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .scroll-image-area {
+    display: none;
+  }
+
+  .scroll-main-heading {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .scroll-main-subtitle {
+    font-size: 1rem;
+  }
+
+  .scroll-section-heading {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .scroll-content-block {
+    min-height: auto;
+    padding: 0;
+  }
+
+  .scroll-feature-item {
+    margin-bottom: 16px;
+    padding: 16px;
+  }
+
+  .scroll-feature-text {
+    font-size: 0.9rem;
+  }
+
+  .scroll-header {
+    margin-bottom: 40px;
+  }
+
+  .scroll-end-spacer {
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-sections-wrapper {
+    padding: 40px 12px;
+  }
+
+  .scroll-main-heading {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .scroll-section-heading {
+    font-size: 1.25rem;
+  }
+
+  .scroll-feature-item {
+    padding: 14px;
+  }
+
+  .scroll-mobile-image-container {
+    height: 200px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY & PERFORMANCE
+   ======================================== */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-image-slide,
+  .scroll-feature-item,
+  .scroll-title-card,
+  .scroll-image-frame {
+    transition: none !important;
+  }
+}
+
+/* Force hardware acceleration for smooth animations */
+.scroll-image-slide,
+.scroll-feature-item,
+.scroll-title-card {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
