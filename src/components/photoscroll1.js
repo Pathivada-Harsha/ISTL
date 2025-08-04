@@ -7,11 +7,11 @@ import "../components_css/photoscroll1.css"
 function ScrolledCom() {
   const [scrollY, setScrollY] = useState(0)
   const [typingText, setTypingText] = useState("")
-  const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const [currentCharIndex, setCurrentCharIndex] = useState(0)
   const [animationStarted, setAnimationStarted] = useState(false)
   const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 1200)
 
-  const typingWords = ["ENERGIZING", "QUALITY", "AND", "ACCOUNTABILITY"]
+  const fullText = "ENERGIZING QUALITY & ACCOUNTABILITY"
 
   useEffect(() => {
     // Set initial window width safely
@@ -48,20 +48,17 @@ function ScrolledCom() {
     }
   }, [animationStarted])
 
-  // Typing animation effect - works for both split and non-split text
+  // Letter-by-letter typing animation effect
   useEffect(() => {
-    if (animationStarted && currentWordIndex < typingWords.length) {
+    if (animationStarted && currentCharIndex < fullText.length) {
       const timer = setTimeout(() => {
-        setTypingText((prev) => {
-          const newText = prev ? prev + " " + typingWords[currentWordIndex] : typingWords[currentWordIndex]
-          return newText
-        })
-        setCurrentWordIndex((prev) => prev + 1)
-      }, 350) // Slightly faster for better mobile experience
+        setTypingText(fullText.substring(0, currentCharIndex + 1))
+        setCurrentCharIndex(prev => prev + 1)
+      }, 120) // Adjust speed as needed (120ms per character)
 
       return () => clearTimeout(timer)
     }
-  }, [currentWordIndex, typingWords, animationStarted])
+  }, [currentCharIndex, fullText, animationStarted])
 
   const contentSections = [
     {
@@ -199,12 +196,12 @@ function ScrolledCom() {
           <div className="ps-typing-text-middle ps-typing-multiline">
             <div className="ps-typing-line">{formattedText.firstLine}</div>
             <div className="ps-typing-line">{formattedText.secondLine}</div>
-            {animationStarted && <span className="ps-typing-cursor">|</span>}
+            {animationStarted && currentCharIndex < fullText.length && <span className="ps-typing-cursor">|</span>}
           </div>
         ) : (
           <h1 className="ps-typing-text-middle ps-typing-single-line">
             {typingText}
-            {animationStarted && <span className="ps-typing-cursor">|</span>}
+            {animationStarted && currentCharIndex < fullText.length && <span className="ps-typing-cursor">|</span>}
           </h1>
         )}
       </div>

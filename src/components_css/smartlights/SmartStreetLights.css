@@ -8,7 +8,7 @@
 /* Hero Section - Compact */
 /* === HERO SECTION FIXES ONLY === */
 .streetlights-hero {
-  min-height: 85vh;
+  min-height: 100vh;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   position: relative;
   overflow: hidden;
@@ -115,6 +115,7 @@
   transform: translateY(30px);
   transition: all 0.8s ease;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .streetlights-hero .streetlights-product-badge.streetlight-animate-on-scroll {
@@ -252,6 +253,20 @@
 .streetlights-hero .streetlights-btn-secondary,
 .streetlights-hero .streetlights-btn-tertiary {
   padding: 0.8rem 1.8rem;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+ .streetlights-btn-secondary {
+ padding: 0.4rem 1.8rem !important;
   border-radius: 40px;
   font-weight: 600;
   text-decoration: none;

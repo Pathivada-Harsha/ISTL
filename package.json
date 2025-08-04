@@ -1,5 +1,5 @@
 {
-
+  "homepage": "/india",
   "name": "istl-web",
   "version": "0.1.0",
   "private": true,
@@ -8,6 +8,8 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^13.2.1",
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
     "lucide-react": "^0.513.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

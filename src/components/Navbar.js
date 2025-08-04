@@ -1,24 +1,29 @@
 import React, { useState, useRef, useEffect } from "react"
-import { NavLink, useLocation } from "react-router-dom"
+import { NavLink, useLocation, useNavigate } from "react-router-dom"
 import { Menu, X, ChevronDown, ArrowRight, Cpu, Plus, Minus, Zap } from "lucide-react"
 import '../components_css/Navbar.css'
 import logo from "../images/istl_logo_01.png"
+import Preloader from './Preloader' // Import your Preloader component
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [iotDropdownOpen, setIotDropdownOpen] = useState(false)
   const [epcDropdownOpen, setEpcDropdownOpen] = useState(false)
   const [smartMetersDropdownOpen, setSmartMetersDropdownOpen] = useState(false)
+  const [countriesDropdownOpen, setCountriesDropdownOpen] = useState(false)
   const [isSticky, setIsSticky] = useState(false)
+  const [showPreloader, setShowPreloader] = useState(false) // New state for preloader
 
   // Mobile dropdown states
   const [mobileIotOpen, setMobileIotOpen] = useState(false)
   const [mobileEpcOpen, setMobileEpcOpen] = useState(false)
   const [mobileSmartMetersOpen, setMobileSmartMetersOpen] = useState(false)
+  const [mobileCountriesOpen, setMobileCountriesOpen] = useState(false)
 
   const hoverTimeoutRef = useRef({})
   const navbarRef = useRef(null)
-  const location = useLocation() // Use useLocation hook for better path tracking
+  const location = useLocation()
+  const navigate = useNavigate()
 
   // Sticky functionality for browsers that don't support CSS sticky
   useEffect(() => {
@@ -59,6 +64,28 @@ export default function Navbar() {
     }
   }, [])
 
+  // Handle logo click with preloader
+  const handleLogoClick = (e) => {
+    e.preventDefault()
+    setShowPreloader(true)
+  }
+
+  // Handle preloader completion
+  const handlePreloaderComplete = () => {
+    setShowPreloader(false)
+    navigate('/')
+  }
+
+  // Flag image mapping for countries
+  const getFlagImage = (countryName) => {
+    const flagMap = {
+      'India': 'https://flagcdn.com/24x18/in.png',
+      'Singapore': 'https://flagcdn.com/24x18/sg.png',
+      'UAE':'https://flagcdn.com/24x18/ae.png'
+    }
+    return flagMap[countryName] || null
+  }
+
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
@@ -71,7 +98,8 @@ export default function Navbar() {
         { name: "CCMS", path: "/products/istl-ccms", description: "Centralized Control & Monitoring System" },
         { name: "ITMS", path: "/products/istl-itms", description: "Intelligent Transformer Monitoring System" },
         { name: "MCMS", path: "/products/istl-mcms", description: "Motor Control & Monitoring System" },
-        { name: "Smart LED Street Lights", path: "/products/smart-street-lights", description: "Intelligent Street Lighting Solutions" }]
+        { name: "Smart LED Street Lights", path: "/products/smart-street-lights", description: "Intelligent Street Lighting Solutions" }
+      ]
     },
     {
       name: "EPC Services",
@@ -92,10 +120,19 @@ export default function Navbar() {
       items: [
         { name: "Single Phase Smart Meter", path: "/products/smart-meters/single-phase", description: "" },
         { name: "Three Phase Smart Meter", path: "/products/smart-meters/three-phase", description: "" }
-
       ]
     },
     { name: "Contact Us", path: "/book-demo" },
+    {
+      name: "Countries",
+      path: "/countries",
+      hasDropdown: true,
+      dropdownKey: "countries",
+      items: [
+        { name: "UAE", path: "https://istlenergy.com/uae/", description: "", external: true },
+        { name: "Singapore", path: "https://istlenergy.com/singapore/", description: "", external: true }
+      ]
+    }
   ]
 
   // Improved function to determine which item should be active
@@ -174,16 +211,25 @@ export default function Navbar() {
         setIotDropdownOpen(true)
         setEpcDropdownOpen(false)
         setSmartMetersDropdownOpen(false)
+        setCountriesDropdownOpen(false)
         break
       case 'epc':
         setEpcDropdownOpen(true)
         setIotDropdownOpen(false)
         setSmartMetersDropdownOpen(false)
+        setCountriesDropdownOpen(false)
         break
       case 'smartMeters':
         setSmartMetersDropdownOpen(true)
         setIotDropdownOpen(false)
         setEpcDropdownOpen(false)
+        setCountriesDropdownOpen(false)
+        break
+      case 'countries':
+        setCountriesDropdownOpen(true)
+        setIotDropdownOpen(false)
+        setEpcDropdownOpen(false)
+        setSmartMetersDropdownOpen(false)
         break
     }
   }
@@ -200,6 +246,9 @@ export default function Navbar() {
         case 'smartMeters':
           setSmartMetersDropdownOpen(false)
           break
+        case 'countries':
+          setCountriesDropdownOpen(false)
+          break
       }
     }, 150)
   }
@@ -210,16 +259,25 @@ export default function Navbar() {
         setIotDropdownOpen(!iotDropdownOpen)
         setEpcDropdownOpen(false)
         setSmartMetersDropdownOpen(false)
+        setCountriesDropdownOpen(false)
         break
       case 'epc':
         setEpcDropdownOpen(!epcDropdownOpen)
         setIotDropdownOpen(false)
         setSmartMetersDropdownOpen(false)
+        setCountriesDropdownOpen(false)
         break
       case 'smartMeters':
         setSmartMetersDropdownOpen(!smartMetersDropdownOpen)
         setIotDropdownOpen(false)
         setEpcDropdownOpen(false)
+        setCountriesDropdownOpen(false)
+        break
+      case 'countries':
+        setCountriesDropdownOpen(!countriesDropdownOpen)
+        setIotDropdownOpen(false)
+        setEpcDropdownOpen(false)
+        setSmartMetersDropdownOpen(false)
         break
     }
   }
@@ -228,6 +286,7 @@ export default function Navbar() {
     setIotDropdownOpen(false)
     setEpcDropdownOpen(false)
     setSmartMetersDropdownOpen(false)
+    setCountriesDropdownOpen(false)
     Object.values(hoverTimeoutRef.current).forEach(timeout => {
       if (timeout) clearTimeout(timeout)
     })
@@ -243,16 +302,25 @@ export default function Navbar() {
         setMobileIotOpen(!mobileIotOpen)
         setMobileEpcOpen(false)
         setMobileSmartMetersOpen(false)
+        setMobileCountriesOpen(false)
         break
       case 'epc':
         setMobileEpcOpen(!mobileEpcOpen)
         setMobileIotOpen(false)
         setMobileSmartMetersOpen(false)
+        setMobileCountriesOpen(false)
         break
       case 'smartMeters':
         setMobileSmartMetersOpen(!mobileSmartMetersOpen)
         setMobileIotOpen(false)
         setMobileEpcOpen(false)
+        setMobileCountriesOpen(false)
+        break
+      case 'countries':
+        setMobileCountriesOpen(!mobileCountriesOpen)
+        setMobileIotOpen(false)
+        setMobileEpcOpen(false)
+        setMobileSmartMetersOpen(false)
         break
     }
   }
@@ -262,6 +330,7 @@ export default function Navbar() {
       case 'iot': return iotDropdownOpen
       case 'epc': return epcDropdownOpen
       case 'smartMeters': return smartMetersDropdownOpen
+      case 'countries': return countriesDropdownOpen
       default: return false
     }
   }
@@ -271,6 +340,7 @@ export default function Navbar() {
       case 'iot': return mobileIotOpen
       case 'epc': return mobileEpcOpen
       case 'smartMeters': return mobileSmartMetersOpen
+      case 'countries': return mobileCountriesOpen
       default: return false
     }
   }
@@ -279,6 +349,9 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Render Preloader if showPreloader is true */}
+      {showPreloader && <Preloader onComplete={handlePreloaderComplete} />}
+      
       <nav
         ref={navbarRef}
         className={`modern-navbar ${isSticky ? 'navbar-sticky-fallback' : ''}`}
@@ -287,7 +360,7 @@ export default function Navbar() {
           <div className="navbar-content">
             {/* Logo */}
             <div className="navbar-logo">
-              <NavLink to="/" className='logo-link'>
+              <a href="/" className='logo-link' onClick={handleLogoClick}>
                 <div className="logo-container">
                   {logo ? (
                     <img src={logo} alt="ISTL Logo" className="logo-image" />
@@ -295,7 +368,7 @@ export default function Navbar() {
                     <Zap className="logo-symbol" size={100} />
                   )}
                 </div>
-              </NavLink>
+              </a>
             </div>
 
             {/* Desktop Navigation */}
@@ -336,12 +409,21 @@ export default function Navbar() {
                               <NavLink
                                 key={dropdownItem.name}
                                 to={dropdownItem.path}
-                                className={`dropdown-item ${isDropdownItemActive(dropdownItem, currentPath) ? 'active' : ''}`}
+                                className={`dropdown-item ${isDropdownItemActive(dropdownItem, currentPath) ? 'active' : ''} ${item.dropdownKey === 'countries' ? 'country-item' : ''}`}
                                 onClick={handleDropdownItemClick}
                                 {...(dropdownItem.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                               >
                                 <div className="dropdown-item-content">
-                                  <span className="dropdown-item-name">{dropdownItem.name}</span>
+                                  <span className="dropdown-item-name">
+                                    {item.dropdownKey === 'countries' && getFlagImage(dropdownItem.name) && (
+                                      <img 
+                                        src={getFlagImage(dropdownItem.name)} 
+                                        alt={`${dropdownItem.name} flag`}
+                                        className="country-flag"
+                                      />
+                                    )}
+                                    {dropdownItem.name}
+                                  </span>
                                   <span className="dropdown-item-description">{dropdownItem.description}</span>
                                 </div>
                                 <ArrowRight size={16} className="dropdown-item-arrow" />
@@ -400,12 +482,21 @@ export default function Navbar() {
                               <NavLink
                                 key={dropdownItem.name}
                                 to={dropdownItem.path}
-                                className={`mobile-dropdown-link ${isDropdownItemActive(dropdownItem, currentPath) ? 'active' : ''}`}
+                                className={`mobile-dropdown-link ${isDropdownItemActive(dropdownItem, currentPath) ? 'active' : ''} ${item.dropdownKey === 'countries' ? 'mobile-country-item' : ''}`}
                                 onClick={() => setMobileMenuOpen(false)}
                                 {...(dropdownItem.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                               >
                                 <div className="mobile-dropdown-item-content">
-                                  <span className="mobile-dropdown-item-name">{dropdownItem.name}</span>
+                                  <span className="mobile-dropdown-item-name">
+                                    {item.dropdownKey === 'countries' && getFlagImage(dropdownItem.name) && (
+                                      <img 
+                                        src={getFlagImage(dropdownItem.name)} 
+                                        alt={`${dropdownItem.name} flag`}
+                                        className="country-flag mobile-flag"
+                                      />
+                                    )}
+                                    {dropdownItem.name}
+                                  </span>
                                   <span className="mobile-dropdown-item-description">{dropdownItem.description}</span>
                                 </div>
                               </NavLink>

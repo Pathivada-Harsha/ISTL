@@ -24,6 +24,7 @@
   align-items: center;
   overflow: hidden;
   background: #0f172a;
+  padding: 50px;
 }
 
 .sp-hero-background {
@@ -262,9 +263,9 @@
   transition: transform 0.3s ease;
 }
 
-.sp-meter-image:hover img {
-  transform: scale(1.05);
-}
+/* .sp-meter-image:hover img {
+  transform: scale(1.05);   
+} */
 
 .sp-certification-badges {
   position: absolute;

@@ -241,7 +241,7 @@ export default function Footer() {
         <div className="footer-company">
           <div className="footer-logo">
             <span className="footer-logo-icon">⚡</span>
-            <span className="footer-logo-text">ISTLabs</span>
+            <span className="footer-logo-text">ISTLEnergy</span>
           </div>
           <p className="footer-description">
             Leading automation company providing innovative solutions for smart infrastructure, industrial control

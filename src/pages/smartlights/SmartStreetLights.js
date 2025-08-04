@@ -75,15 +75,15 @@ const SmartStreetLights = () => {
       image: lights7,
       models: ["24W", "36W", "45W", "75W", "100W", "120W", "150W", "200W", "250W"],
     },
-    {
-      name: "  Solar Street Light",
-      description: "Sustainable solar-powered street lighting with integrated battery backup",
-      range: "12W - 60W",
-      cct: "5.5K/6.5K",
-      features: ["Solar Powered", "Battery Backup", "Zero Electricity Cost", "Eco Friendly"],
-      image: lights6,
-      models: ["12W", "15W", "20W", "30W", "40W", "50W", "60W"],
-    },
+    // {
+    //   name: "  Solar Street Light",
+    //   description: "Sustainable solar-powered street lighting with integrated battery backup",
+    //   range: "12W - 60W",
+    //   cct: "5.5K/6.5K",
+    //   features: ["Solar Powered", "Battery Backup", "Zero Electricity Cost", "Eco Friendly"],
+    //   image: lights6,
+    //   models: ["12W", "15W", "20W", "30W", "40W", "50W", "60W"],
+    // },
   ]
 
   const features = [
@@ -223,45 +223,13 @@ const SmartStreetLights = () => {
                 </button>
               </a>
               
-              <Link to="/book-demo" className="streetlights-btn-secondary">
-                Request Quote
+              <Link to="/contactus" className="streetlights-btn-secondary">
+                Contact Us
               </Link>
             </div>
           </div>
 
-          {/* <div className="streetlights-hero-visual streetlight-animate-on-scroll" id="hero-visual">
-            <div className="streetlights-showcase">
-              <div className="streetlights-main-image">
-                <img
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=400&fit=crop"
-                  alt="ISTL Street Light"
-                />
-              </div>
-              <div className="streetlights-floating-cards">
-                <div className="streetlights-card streetlights-energy">
-                  <span className="streetlights-card-icon">⚡</span>
-                  <div>
-                    <strong>80%</strong>
-                    <small>Energy Savings</small>
-                  </div>
-                </div>
-                <div className="streetlights-card streetlights-certification">
-                  <span className="streetlights-card-icon">🏆</span>
-                  <div>
-                    <strong>BIS</strong>
-                    <small>Certified</small>
-                  </div>
-                </div>
-                <div className="streetlights-card streetlights-warranty">
-                  <span className="streetlights-card-icon">🛡️</span>
-                  <div>
-                    <strong>5 Year</strong>
-                    <small>Warranty</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
+
         </div>
       </section>
 
@@ -324,55 +292,6 @@ const SmartStreetLights = () => {
         </div>
       </section>
 
-      {/* Why Choose ISTL Section */}
-      {/* <section className={`streetlights-why-choose-section ${isVisible.whyChoose ? "visible" : ""}`} id="whyChoose">
-        <div className="streetlights-container">
-          <div className="streetlights-section-header streetlight-animate-on-scroll">
-            <h2 className="streetlights-section-title">Why Choose ISTL Street Lights?</h2>
-            <p className="streetlights-section-subtitle">
-              Leading the industry with certified quality, innovative technology, and comprehensive solutions
-            </p>
-          </div>
-
-          <div className="streetlights-why-choose-grid">
-            <div className="streetlights-why-item streetlight-animate-on-scroll">
-              <div className="streetlights-why-icon">🏆</div>
-              <h3>BIS Certified Quality</h3>
-              <p>Only manufacturer with BIS certification for LED street lights, ensuring highest quality standards</p>
-            </div>
-
-            <div className="streetlights-why-item streetlight-animate-on-scroll">
-              <div className="streetlights-why-icon">🔬</div>
-              <h3>Advanced R&D</h3>
-              <p>State-of-the-art in-house laboratory with cutting-edge testing equipment and quality control</p>
-            </div>
-
-            <div className="streetlights-why-item streetlight-animate-on-scroll">
-              <div className="streetlights-why-icon">🌍</div>
-              <h3>Global Standards</h3>
-              <p>ISO 9001:2015, ISO 14001:2015, and ISO 45001:2018 certified manufacturing processes</p>
-            </div>
-
-            <div className="streetlights-why-item streetlight-animate-on-scroll">
-              <div className="streetlights-why-icon">⚡</div>
-              <h3>Energy Efficient</h3>
-              <p>Up to 80% energy savings with 137 Lm/W efficiency and intelligent thermal management</p>
-            </div>
-
-            <div className="streetlights-why-item streetlight-animate-on-scroll">
-              <div className="streetlights-why-icon">🛠️</div>
-              <h3>Complete Solutions</h3>
-              <p>From design to installation, comprehensive lighting solutions with 5-year warranty support</p>
-            </div>
-
-            <div className="streetlights-why-item streetlight-animate-on-scroll">
-              <div className="streetlights-why-icon">🇮🇳</div>
-              <h3>Made in India</h3>
-              <p>Proudly manufactured in India with MSME certification, supporting local economy and growth</p>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Product Series Section */}
       <section className="streetlights-series-section">
@@ -577,7 +496,7 @@ const SmartStreetLights = () => {
               >
                 Download Complete Catalog
               </button> */}
-              {/* <Link to="/book-demo" className="streetlights-btn-primary">
+              {/* <Link to="/contactus" className="streetlights-btn-primary">
                 Request Quote
               </Link> */}
               {/* <Link to="/contact" className="streetlights-btn-tertiary">

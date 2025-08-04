@@ -55,7 +55,7 @@ export default function Home() {
       <div
         className={`home-content ${contentVisible ? "content-visible" : "content-hidden"}`}
         style={{
-          opacity: contentVisible ? 1 : 0,
+          opacity: contentVisible ? 1 : 1,
           transition: "opacity 0.8s ease-in-out",
         }}
       >

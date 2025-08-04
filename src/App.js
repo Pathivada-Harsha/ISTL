@@ -1,5 +1,5 @@
-import React, { Suspense } from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import React, { Suspense,useEffect } from "react"
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import Home from "./pages/Home1.js"
 import Footer from "./components/Footer"
@@ -30,6 +30,7 @@ const Cookie = React.lazy(() => import("./pages/documents/cookie-policy"))
 
 // Loading component
 const LoadingSpinner = () => (
+
   <div
     style={{
       display: "flex",
@@ -45,8 +46,17 @@ const LoadingSpinner = () => (
 )
 
 function App() {
+  const loc = useLocation();
+  const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (loc.pathname === '/india') {
+  //     navigate('/');
+  //   }
+  // }, [loc, navigate]);
+
   return (
-    <Router>
+    <>
       <div className="min-h-screen bg-white">
         <ScrollToTop />
         <Navbar />
@@ -71,7 +81,6 @@ function App() {
             <Route path="/Terms" element={<Terms />} />
             <Route path="/Cookie" element={<Cookie />} />
             <Route path="/book-demo" element={<BookDemo />} />
-            {/* Add a catch-all route for debugging */}
             <Route
               path="*"
               element={
@@ -86,8 +95,10 @@ function App() {
         <Footer />
         <BackToTop />
       </div>
-    </Router>
+    </>
   )
 }
 
-export default App
+export default App;
+
+

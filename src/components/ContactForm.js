@@ -43,7 +43,7 @@ function ContactForm() {
           <div className="hf-head-office-section">
             <h3 className="hf-office-title">HEAD OFFICE</h3>
             <div className="hf-office-address">
-              <p>iScientific Tech Solutions Labs Pvt. ltd. 133/1/B, 1st Floor Phase ll,
+              <p>iScientific Tech Solutions Labs Pvt. Ltd. 133/1/B, 1st Floor Phase ll,
                 IDA Cherlapally, Hyderabad , India – 500051, India</p>
             </div>
             <div className="hf-contact-email">

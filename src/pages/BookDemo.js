@@ -176,7 +176,7 @@ const BookDemo = () => {
       <section className="demo-benefits">
         <div className="demo-container">
           <div className="demo-section-header demo-animate-on-scroll" id="benefits-header">
-            <h2>Why Book a Demo?</h2>
+            <h2>Why Contact Us?</h2>
             <p>Discover how our solutions can transform your operations</p>
           </div>
 
@@ -198,7 +198,7 @@ const BookDemo = () => {
           <div className="demo-form-wrapper">
             <div className="demo-form-content">
               <div className="demo-form-header demo-animate-on-scroll" id="form-header">
-                <h2>Schedule Your Demo</h2>
+                <h2>Get in Touch</h2>
                 <p>
                   Fill out the form below and our team will contact you within 24 hours to schedule your personalized
                   demonstration.
@@ -325,7 +325,7 @@ const BookDemo = () => {
                     </>
                   ) : (
                     <>
-                      Schedule Demo
+                      Submit Form
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 12h14" />
                         <path d="M12 5l7 7-7 7" />
