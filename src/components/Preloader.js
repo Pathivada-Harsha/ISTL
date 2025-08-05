@@ -236,7 +236,7 @@ export default function Preloader({ onComplete }) {
 
       <style jsx>{`
         /* ISTL Group Section Styles */
-        .istl-group-phase {
+          .istl-group-phase {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -339,11 +339,11 @@ export default function Preloader({ onComplete }) {
 
         .company-card {
           position: absolute;
-          width: clamp(220px, 20vw, 320px);
-          height: clamp(120px, 12vw, 180px);
+          width: 320px;
+          height: 180px;
           background: rgba(227, 227, 227, 0.9);
           backdrop-filter: blur(20px);
-          border-radius: clamp(10px, 1.5vw, 20px);
+          border-radius: 20px;
           border: 3px solid;
           display: flex;
           align-items: center;
@@ -354,10 +354,11 @@ export default function Preloader({ onComplete }) {
           overflow: hidden;
         }
 
+        /* Fixed positions for cards at all screen sizes */
         .company-1 {
           /* Bottom left card */
-          left: clamp(5%, 18%, 18%);
-          bottom: clamp(35%, 44%, 44%);
+          left: 18%;
+          bottom: 48%;
           transform: translateY(50%);
           border-color: rgba(255, 20, 147, 0.8);
           box-shadow: 
@@ -367,8 +368,8 @@ export default function Preloader({ onComplete }) {
 
         .company-2 {
           /* Top center card */
-          left: clamp(25%, 38%, 38%);
-          top: clamp(5%, 0%, 0%);
+          left: 38%;
+          top: 0%;
           transform: translateX(-50%);
           border-color: rgba(157, 78, 221, 0.8);
           box-shadow: 
@@ -378,14 +379,31 @@ export default function Preloader({ onComplete }) {
 
         .company-3 {
           /* Bottom right card */
-          right: clamp(5%, 13%, 13%);
-          bottom: clamp(35%, 44%, 44%);
+          right: 11%;
+          bottom: 48%;
           transform: translateY(50%);
           border-color: rgba(0, 212, 255, 0.8);
           box-shadow: 
             0 0 40px rgba(0, 212, 255, 0.4),
             0 20px 40px rgba(0, 212, 255, 0.3);
         }
+        @media (max-width: 1025px) {
+          .company-1 {
+            left: 18% !important;
+            bottom: 48%;
+          }
+
+          .company-2 {
+            left: 38%;
+            top: 0%;
+          }
+
+          .company-3 {
+            right: 7% !important;
+            bottom: 48%;
+          }
+        }
+
 
         .company-card::before {
           content: '';
@@ -451,12 +469,13 @@ export default function Preloader({ onComplete }) {
         /* Partner Badge Styles */
         .partner-badge {
           position: absolute;
-          bottom: -14px;
-          left: 50%;
+            bottom: 100px !important;
+          left: 30% !important;
           transform: translateX(-50%);
-          background: linear-gradient(135deg, #00d4ff, #0099cc);
+         background: linear-gradient(to right, #00d4ff, #0099cc);
+
           padding: 4px 12px;
-          border-radius: 10px;
+          border-radius: 5px;
           box-shadow: 
             0 4px 15px rgba(0, 212, 255, 0.3),
             inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -465,9 +484,26 @@ export default function Preloader({ onComplete }) {
           z-index: 3;
         }
 
+        @media (max-width:786px){
+                 .partner-badge {
+          position: absolute;
+          bottom: 60px !important;
+          left: 30% !important;
+          transform: translateX(-50%);
+          background: linear-gradient(to right, #00d4ff, #0099cc);
+          padding: 4px 12px;
+          border-radius: 5px;
+          box-shadow: 
+            0 4px 15px rgba(0, 212, 255, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+          opacity: 0;
+          animation: fadeInBadge 0.8s ease-out 2.2s forwards;
+          z-index: 3;
+        }
+        } 
         .partner-text {
           font-family: "Arial", "Helvetica", sans-serif;
-          font-size: clamp(0.65rem, 0.8vw, 0.9rem);
+          font-size: 0.9rem;
           font-weight: 600;
           color: rgba(255, 255, 255, 0.95);
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -513,33 +549,6 @@ export default function Preloader({ onComplete }) {
           50% {
             opacity: 0.3;
             transform: translate(-50%, -50%) scale(1.2);
-          }
-        }
-
-        .connecting-curve {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 1;
-        }
-
-        .curve-svg {
-          width: 100%;
-          height: 100%;
-        }
-
-        .curve-path {
-          stroke-dasharray: 2000;
-          stroke-dashoffset: 2000;
-          animation: drawCurve 3s ease-out 1.5s forwards;
-        }
-
-        @keyframes drawCurve {
-          to {
-            stroke-dashoffset: 0;
           }
         }
 
@@ -816,117 +825,33 @@ export default function Preloader({ onComplete }) {
           }
         }
 
-        /* Enhanced Mobile Responsive Breakpoints */
-        
-        /* Extra Large Screens */
-        @media (max-width: 1440px) {
-          .company-card {
-            width: clamp(200px, 18vw, 300px);
-            height: clamp(110px, 11vw, 170px);
-          }
-          
-          .company-1 {
-            left: clamp(8%, 16%, 20%);
-          }
-          
-          .company-3 {
-            right: clamp(8%, 12%, 18%);
-          }
-        }
-
-        /* Large Tablets and Small Laptops */
-        @media (max-width: 1200px) {
+        /* Enhanced Mobile Responsive Adjustments */
+        @media (max-width: 1024px) {
           .istl-group-title {
             margin-top: clamp(30px, 8vh, 100px);
           }
           
-          .companies-showcase {
-            height: clamp(350px, 50vh, 500px);
-          }
-          
           .company-card {
-            width: clamp(180px, 22vw, 280px);
-            height: clamp(100px, 12vw, 160px);
+            width: 280px;
+            height: 160px;
           }
           
           .company-1 {
-            left: clamp(5%, 12%, 15%);
-            bottom: clamp(25%, 40%, 45%);
+            left: 10%;
+            bottom: 45%;
           }
           
           .company-2 {
-            left: clamp(30%, 42%, 45%);
-            top: clamp(8%, 5%, 8%);
+            left: 38%;
+            top: 5%;
           }
           
           .company-3 {
-            right: clamp(5%, 8%, 12%);
-            bottom: clamp(25%, 40%, 45%);
-          }
-          
-          .locations-grid {
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: clamp(1.2rem, 2.5vw, 2.5rem);
-          }
-          
-          .location-card {
-            width: clamp(220px, 28vw, 260px);
-            height: clamp(240px, 28vh, 280px);
+            right: 10%;
+            bottom: 45%;
           }
         }
 
-        /* Standard Tablets */
-        @media (max-width: 1024px) {
-          .istl-group-container {
-            padding: clamp(1rem, 2.5vw, 2.5rem) clamp(0.5rem, 1.5vw, 1.5rem);
-          }
-          
-          .companies-showcase {
-            height: clamp(300px, 45vh, 450px);
-          }
-          
-          .company-card {
-            width: clamp(160px, 25vw, 250px);
-            height: clamp(90px, 14vw, 140px);
-            border-radius: clamp(8px, 1.2vw, 16px);
-          }
-          
-          .company-1 {
-            left: clamp(2%, 8%, 12%);
-            bottom: clamp(20%, 35%, 40%);
-          }
-          
-          .company-2 {
-            left: clamp(35%, 45%, 50%);
-            top: clamp(10%, 8%, 12%);
-          }
-          
-          .company-3 {
-            right: clamp(2%, 5%, 8%);
-            bottom: clamp(20%, 35%, 40%);
-          }
-          
-          .locations-grid {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: clamp(1rem, 2vw, 2rem);
-            max-width: 800px;
-          }
-          
-          .main-logo {
-            width: clamp(200px, 40vw, 450px);
-          }
-
-          .partner-badge {
-            bottom: -8px;
-            padding: 3px 10px;
-          }
-
-          .partner-text {
-            font-size: clamp(0.6rem, 0.7vw, 0.8rem);
-          }
-        }
-
-        /* Small Tablets and Large Mobile */
         @media (max-width: 768px) {
           .istl-group-title {
             font-size: clamp(1.8rem, 5vw, 3rem);
@@ -937,24 +862,18 @@ export default function Preloader({ onComplete }) {
             font-size: clamp(1.3rem, 3.5vw, 2rem);
           }
           
-          .istl-group-header {
-            margin-bottom: clamp(2rem, 4vh, 3.5rem);
-          }
-          
           .companies-showcase {
             height: auto;
             min-height: clamp(250px, 40vh, 400px);
-            padding: clamp(1rem, 2vh, 2rem) 0;
+            padding: 2rem 0;
           }
           
           .companies-grid {
-            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: clamp(1rem, 2vh, 2rem);
-            height: auto;
+            gap: 2rem;
+            padding: 1rem;
           }
           
           .company-card {
@@ -964,267 +883,122 @@ export default function Preloader({ onComplete }) {
             top: auto !important;
             bottom: auto !important;
             transform: none !important;
-            width: clamp(240px, 70vw, 320px);
-            height: clamp(120px, 15vh, 160px);
+            width: 280px;
+            height: 140px;
             margin: 0;
           }
           
-          .company-1:hover,
-          .company-2:hover,
-          .company-3:hover {
+          .company-card:hover {
             transform: translateY(-10px) scale(1.05) !important;
           }
           
-          .location-selection-container {
-            padding: clamp(0.5rem, 1.5vw, 1.5rem);
-          }
-          
-          .main-logo-section {
-            margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
-          }
-          
-          .main-logo {
-            width: clamp(180px, 50vw, 350px);
-          }
-          
-          .countdown-timer {
-            font-size: clamp(0.7rem, 1.8vw, 1.1rem);
-            margin-bottom: clamp(1.5rem, 2.5vh, 2.5rem);
-            padding: 0 0.5rem;
-          }
-          
-          .locations-grid {
-            grid-template-columns: 1fr;
-            gap: clamp(1rem, 2vh, 1.5rem);
-            max-width: 400px;
-          }
-          
-          .location-card {
-            width: clamp(260px, 80vw, 320px);
-            height: clamp(220px, 25vh, 260px);
-            padding: clamp(1.2rem, 2vh, 2rem);
-          }
-          
-          .singapore-card {
-            transform: translateY(0) !important;
-          }
-          
-          .singapore-card:hover {
-            transform: translateY(-10px) scale(1.05) !important;
-          }
-          
-          .singapore-card.selected {
-            transform: translateY(-15px) scale(1.08) !important;
-          }
-
-          .partner-badge {
-            bottom: -6px;
-            padding: 2px 8px;
-            border-radius: 12px;
-          }
+          // .partner-badge {
+          //   bottom: -10px;
+          //   padding: 3px 10px;
+          //   border-radius: 12px;
+          // }
 
           .partner-text {
-            font-size: clamp(0.55rem, 0.6vw, 0.7rem);
+            font-size: 0.8rem;
+          }
+
+          .location-selection-container {
+            padding: 1rem;
+          }
+
+          .main-logo {
+            width: 200px;
+          }
+
+          .locations-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 400px;
+          }
+
+          .location-card {
+            width: 260px;
+            height: 220px;
           }
         }
 
-        /* Standard Mobile */
-        @media (max-width: 640px) {
-          .istl-group-container {
-            padding: clamp(0.8rem, 2vw, 2rem) clamp(0.5rem, 1vw, 1rem);
-          }
-          
+        @media (max-width: 480px) {
           .istl-group-title {
-            font-size: clamp(1.6rem, 6vw, 2.5rem);
+            font-size: clamp(1.5rem, 6vw, 2.5rem);
             margin-top: clamp(15px, 5vh, 60px);
           }
           
           .group-text {
-            font-size: clamp(1.2rem, 4vw, 1.8rem);
-          }
-          
-          .companies-showcase {
-            min-height: clamp(200px, 35vh, 350px);
-            padding: clamp(0.5rem, 1.5vh, 1.5rem) 0;
+            font-size: clamp(1.1rem, 4vw, 1.8rem);
           }
           
           .company-card {
-            width: clamp(220px, 75vw, 280px);
-            height: clamp(110px, 14vh, 140px);
-            border-radius: clamp(6px, 1vw, 12px);
-            gap: clamp(0.8rem, 1.5vh, 1.5rem);
+            width: 240px;
+            height: 120px;
           }
           
           .main-logo {
-            width: clamp(160px, 60vw, 300px);
+            width: 180px;
           }
           
           .countdown-timer {
-            font-size: clamp(0.65rem, 2vw, 1rem);
-            line-height: 1.4;
-            margin-bottom: clamp(1.2rem, 2vh, 2rem);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            padding: 0 0.5rem;
           }
           
           .location-card {
-            width: clamp(240px, 85vw, 280px);
-            height: clamp(200px, 22vh, 240px);
-            padding: clamp(1rem, 1.8vh, 1.8rem);
+            width: 240px;
+            height: 200px;
           }
           
           .location-flag {
-            width: clamp(80px, 15vw, 120px);
+            width: 80px;
           }
           
           .location-label {
-            font-size: clamp(0.9rem, 2vw, 1.4rem);
+            font-size: 1.1rem;
           }
 
-          .partner-badge {
-            bottom: -5px;
-            padding: 2px 6px;
-            border-radius: 10px;
-          }
+          // .partner-badge {
+          //   bottom: -8px;
+          //   padding: 2px 8px;
+          // }
 
           .partner-text {
-            font-size: clamp(0.5rem, 0.55vw, 0.65rem);
+            font-size: 0.7rem;
           }
         }
 
-        /* Small Mobile */
-        @media (max-width: 480px) {
+        @media (max-width: 360px) {
           .istl-group-title {
-            font-size: clamp(1.4rem, 7vw, 2.2rem);
-            margin-top: clamp(10px, 4vh, 40px);
+            font-size: clamp(1.3rem, 7vw, 2.2rem);
           }
           
           .group-text {
             font-size: clamp(1rem, 5vw, 1.6rem);
           }
           
-          .istl-group-header {
-            margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
-          }
-          
-          .companies-showcase {
-            min-height: clamp(180px, 30vh, 300px);
-            padding: clamp(0.5rem, 1vh, 1rem) 0;
-          }
-          
-          .companies-grid {
-            gap: clamp(0.8rem, 1.5vh, 1.5rem);
-          }
-          
           .company-card {
-            width: clamp(200px, 80vw, 260px);
-            height: clamp(100px, 12vh, 130px);
-            border-radius: clamp(5px, 0.8vw, 10px);
-          }
-          
-          .main-logo-section {
-            margin-top: clamp(10px, 3vh, 30px);
-            margin-bottom: clamp(1rem, 2vh, 2rem);
+            width: 220px;
+            height: 110px;
           }
           
           .main-logo {
-            width: clamp(140px, 65vw, 250px);
-          }
-          
-          .countdown-timer {
-            font-size: clamp(0.6rem, 2.2vw, 0.9rem);
-            margin-bottom: clamp(1rem, 1.8vh, 1.8rem);
-            padding: 0 0.3rem;
-          }
-          
-          .locations-grid {
-            gap: clamp(0.8rem, 1.5vh, 1.2rem);
-            max-width: 320px;
+            width: 160px;
           }
           
           .location-card {
-            width: clamp(220px, 90vw, 260px);
-            height: clamp(180px, 20vh, 220px);
-            padding: clamp(0.8rem, 1.5vh, 1.5rem);
-          }
-          
-          .location-flag-wrapper {
-            margin-bottom: clamp(0.8rem, 1.5vh, 1.5rem);
+            width: 220px;
+            height: 180px;
           }
           
           .location-flag {
-            width: clamp(70px, 18vw, 100px);
-            border-radius: clamp(6px, 0.8vw, 10px);
+            width: 70px;
           }
           
           .location-label {
-            font-size: clamp(0.8rem, 2.2vw, 1.2rem);
-            letter-spacing: 0.05em;
-          }
-
-          .partner-badge {
-            bottom: -4px;
-            padding: 1px 5px;
-            border-radius: 8px;
-          }
-
-          .partner-text {
-            font-size: clamp(0.45rem, 0.5vw, 0.6rem);
-          }
-        }
-
-        /* Extra Small Mobile */
-        @media (max-width: 360px) {
-          .istl-group-container {
-            padding: clamp(0.5rem, 1.5vw, 1.5rem) clamp(0.3rem, 0.8vw, 0.8rem);
-          }
-          
-          .istl-group-title {
-            font-size: clamp(1.2rem, 8vw, 2rem);
-          }
-          
-          .group-text {
-            font-size: clamp(0.9rem, 6vw, 1.4rem);
-          }
-          
-          .companies-showcase {
-            min-height: clamp(160px, 28vh, 280px);
-          }
-          
-          .company-card {
-            width: clamp(180px, 85vw, 240px);
-            height: clamp(90px, 11vh, 120px);
-          }
-          
-          .main-logo {
-            width: clamp(120px, 70vw, 220px);
-          }
-          
-          .countdown-timer {
-            font-size: clamp(0.55rem, 2.5vw, 0.8rem);
-            padding: 0 0.2rem;
-          }
-          
-          .location-card {
-            width: clamp(200px, 95vw, 240px);
-            height: clamp(160px, 18vh, 200px);
-            padding: clamp(0.6rem, 1.2vh, 1.2rem);
-          }
-          
-          .location-flag {
-            width: clamp(60px, 20vw, 90px);
-          }
-          
-          .location-label {
-            font-size: clamp(0.7rem, 2.5vw, 1rem);
-          }
-
-          .partner-badge {
-            bottom: -3px;
-            padding: 1px 4px;
-            border-radius: 6px;
-          }
-
-          .partner-text {
-            font-size: clamp(0.4rem, 0.45vw, 0.55rem);
+            font-size: 1rem;
           }
         }
 
@@ -1239,82 +1013,20 @@ export default function Preloader({ onComplete }) {
             font-size: clamp(1.1rem, 3vh, 1.8rem);
           }
           
-          .istl-group-header {
-            margin-bottom: clamp(1rem, 3vh, 2rem);
-          }
-          
           .companies-showcase {
             height: clamp(200px, 50vh, 300px);
           }
           
           .company-card {
-            height: clamp(80px, 15vh, 120px);
-          }
-          
-          .main-logo-section {
-            margin-top: clamp(5px, 2vh, 20px);
-            margin-bottom: clamp(1rem, 2vh, 1.5rem);
+            height: 120px;
           }
           
           .main-logo {
-            width: clamp(120px, 25vh, 200px);
-          }
-          
-          .countdown-timer {
-            margin-bottom: clamp(0.8rem, 2vh, 1.5rem);
+            width: 150px;
           }
           
           .location-card {
-            height: clamp(140px, 25vh, 180px);
-          }
-
-          .partner-badge {
-            bottom: -3px;
-            padding: 1px 5px;
-          }
-
-          .partner-text {
-            font-size: clamp(0.45rem, 0.5vw, 0.6rem);
-          }
-        }
-
-        /* Ultra-wide screens */
-        @media (min-width: 1920px) {
-          .istl-group-container {
-            max-width: 1600px;
-          }
-          
-          .location-selection-container {
-            max-width: 1600px;
-          }
-          
-          .companies-showcase {
-            height: clamp(500px, 50vh, 700px);
-          }
-          
-          .company-card {
-            width: clamp(280px, 16vw, 350px);
-            height: clamp(160px, 10vw, 200px);
-          }
-          
-          .locations-grid {
-            max-width: 1400px;
-            gap: clamp(2rem, 3vw, 4rem);
-          }
-          
-          .location-card {
-            width: clamp(260px, 20vw, 320px);
-            height: clamp(280px, 20vh, 350px);
-          }
-
-          .partner-badge {
-            bottom: -12px;
-            padding: 5px 15px;
-            border-radius: 18px;
-          }
-
-          .partner-text {
-            font-size: clamp(0.7rem, 0.9vw, 1rem);
+            height: 160px;
           }
         }
       `}</style>

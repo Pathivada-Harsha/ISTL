@@ -5,14 +5,14 @@
 /* Base wrapper styles */
 .scroll-sections-wrapper {
   position: relative;
-  padding: 60px 20px; /* Reduced from 80px */
+  padding: 40px 20px; /* Reduced from 60px */
   font-family: "Poppins", Arial, sans-serif;
   background: linear-gradient(135deg, #fafbff 0%, #f0f4ff 50%, #e6f0ff 100%);
   min-height: auto;
 }
 
 .scroll-sections-wrapper.mobile {
-  padding: 40px 16px;
+  padding: 30px 16px; /* Reduced from 40px */
 }
 
 /* Background design elements */
@@ -22,28 +22,28 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.03) 0%, transparent 50%), 
-              radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+  background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
   z-index: 0;
 }
 
 /* Header section */
 .scroll-header {
   text-align: center;
-  margin-bottom: 60px; /* Reduced from 80px */
+  margin-bottom: 40px; /* Reduced from 60px */
   position: relative;
   z-index: 1;
 }
 
 .scroll-header.mobile {
-  margin-bottom: 40px;
+  margin-bottom: 30px; /* Reduced from 40px */
 }
 
 .scroll-main-heading {
-  font-size: clamp(2rem, 4vw, 3.5rem); /* Reduced from clamp(2.5rem, 5vw, 4rem) */
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
   color: #1e293b;
-  margin-bottom: 16px; /* Reduced from 20px */
+  margin-bottom: 16px;
   background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -56,7 +56,7 @@
 }
 
 .scroll-main-subtitle {
-  font-size: 1.125rem; /* Reduced from 1.25rem */
+  font-size: 1.125rem;
   color: #64748b;
   max-width: 600px;
   margin: 0 auto;
@@ -70,12 +70,13 @@
 /* Content layout */
 .scroll-content-layout {
   display: flex;
-  max-width: 1200px; /* Reduced from 1400px */
+  max-width: 1200px;
   margin: 0 auto;
-  gap: 40px; /* Reduced from 60px */
+  gap: 80px; /* Increased for better separation */
   position: relative;
   z-index: 1;
-  min-height: calc(100vh + 200px);
+  /* Remove min-height that was causing the issue */
+  min-height: auto;
 }
 
 .scroll-content-layout.mobile {
@@ -84,11 +85,27 @@
   min-height: auto;
 }
 
+/* Content wrapper - Ensures both sides end together */
+.scroll-content-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 80px; /* Increased for better separation */
+  position: relative;
+}
+
+/* Ensure mobile wrapper doesn't interfere */
+.scroll-content-wrapper.mobile {
+  display: block;
+  gap: 0;
+}
+
 /* Content area */
 .scroll-content-area {
   flex: 1;
-  max-width: 550px; /* Reduced from 600px */
+  max-width: 550px;
   width: 100%;
+  /* Ensure content area determines the total height */
+  position: relative;
 }
 
 .scroll-content-area.mobile {
@@ -124,8 +141,8 @@
 
 /* Desktop content block */
 .scroll-content-block {
-  min-height: 350px; /* Reduced from 400px */
-  padding: 30px 0; /* Reduced from 40px */
+  min-height: 280px; /* Reduced from 350px */
+  padding: 20px 0; /* Reduced from 30px */
   position: relative;
 }
 
@@ -136,25 +153,24 @@
 
 /* Section headings */
 .scroll-section-heading {
-  font-size: 1.875rem; /* Reduced from 2.25rem */
+  font-size: 1.875rem;
   font-weight: 700;
   color: #1e293b;
-  margin-bottom: 30px; /* Reduced from 40px */
+  margin-bottom: 20px; /* Reduced from 30px */
   line-height: 1.2;
   position: relative;
 }
 
 .scroll-section-heading.mobile {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* Reduced from 20px */
 }
 
 .scroll-section-heading::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -8px; /* Reduced from -10px */
-  width: 50px; /* Reduced from 60px */
+  bottom: -8px;
+  width: 50px;
   height: 3px;
   background: linear-gradient(90deg, #3b82f6, #6366f1);
   border-radius: 2px;
@@ -170,10 +186,10 @@
 .scroll-feature-item {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 20px; /* Reduced from 24px */
-  padding: 16px; /* Reduced from 20px */
+  margin-bottom: 15px; /* Reduced from 20px */
+  padding: 14px; /* Reduced from 16px */
   background: rgba(255, 255, 255, 0.7);
-  border-radius: 12px; /* Reduced from 16px */
+  border-radius: 12px;
   border: 1px solid rgba(59, 130, 246, 0.1);
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
@@ -181,53 +197,53 @@
 }
 
 .scroll-feature-item.mobile {
-  margin-bottom: 16px;
-  padding: 16px;
+  margin-bottom: 12px; /* Reduced from 16px */
+  padding: 14px; /* Keep same */
 }
 
 .scroll-feature-item:hover {
-  transform: translateX(6px) translateY(0); /* Reduced from 8px */
+  transform: translateX(6px) translateY(0);
   background: rgba(255, 255, 255, 0.9);
   border-color: rgba(59, 130, 246, 0.2);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1); /* Reduced shadow */
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1);
 }
 
 .scroll-check-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px; /* Reduced from 28px */
-  height: 24px; /* Reduced from 28px */
+  width: 24px;
+  height: 24px;
   background: linear-gradient(135deg, #10b981, #059669);
   border-radius: 50%;
-  margin-right: 14px; /* Reduced from 16px */
+  margin-right: 14px;
   flex-shrink: 0;
-  box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3); /* Reduced shadow */
+  box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3);
 }
 
 .scroll-check-icon {
-  width: 14px; /* Reduced from 16px */
-  height: 14px; /* Reduced from 16px */
+  width: 14px;
+  height: 14px;
   color: white;
 }
 
 .scroll-feature-text {
   color: #475569;
   line-height: 1.6;
-  font-size: 0.95rem; /* Reduced from 1rem */
+  font-size: 0.95rem;
 }
 
 .scroll-feature-text.mobile {
   font-size: 0.9rem;
 }
 
-/* Desktop image area - Made more square and compact */
+/* Desktop image area - Match content height */
 .scroll-image-area {
-  flex: 0 0 450px; /* Fixed width instead of flex: 1, reduced from 600px */
-  max-width: 450px; /* Reduced from 600px */
+  flex: 0 0 400px; /* Reduced from 450px */
+  max-width: 400px; /* Reduced from 450px */
   position: relative;
+  /* Remove min-height and let it match content */
   height: auto;
-  min-height: 450px; /* Reduced from 600px to make it square */
 }
 
 .scroll-image-area.mobile {
@@ -236,31 +252,26 @@
 
 .scroll-image-container {
   position: sticky;
-  top: 100px; /* Reduced from 120px */
+  top: 80px; /* Reduced from 100px */
   width: 100%;
-  height: 450px; /* Reduced from 600px to make it square */
+  height: 400px; /* Reduced from 450px */
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Add bottom constraint to prevent overflow */
+  bottom: 80px; /* Reduced from 100px */
 }
 
-.scroll-image-container.unstuck {
-  position: absolute !important;
-  top: auto !important;
-  bottom: 0 !important;
-  transform: translateY(0);
-  margin-top: 0;
-}
+/* Removed .scroll-image-container.unstuck styles completely */
 
 .scroll-image-frame {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 20px; /* Reduced from 24px */
+  border-radius: 20px;
   overflow: hidden;
   background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), /* Reduced shadow intensity */
-              0 0 0 1px rgba(255, 255, 255, 0.5), 
-              inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  transform: perspective(1000px) rotateY(-3deg) rotateX(1deg); /* Reduced rotation */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.5), inset 0 1px 0
+    rgba(255, 255, 255, 0.6);
+  transform: perspective(1000px) rotateY(-3deg) rotateX(1deg);
   transition: transform 0.4s ease;
 }
 
@@ -304,19 +315,19 @@
 /* Floating title */
 .scroll-floating-title {
   position: absolute;
-  bottom: 24px; /* Reduced from 30px */
-  left: 24px; /* Reduced from 30px */
-  right: 24px; /* Reduced from 30px */
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
   z-index: 10;
 }
 
 .scroll-title-card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
-  padding: 20px; /* Reduced from 24px */
-  border-radius: 14px; /* Reduced from 16px */
+  padding: 20px;
+  border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); /* Reduced shadow */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
   position: relative;
   overflow: hidden;
 }
@@ -332,19 +343,19 @@
 }
 
 .scroll-current-title {
-  font-size: 1.125rem; /* Reduced from 1.25rem */
+  font-size: 1.125rem;
   font-weight: 600;
   color: #1e293b;
   margin: 0;
 }
 
-/* End spacer */
+/* End spacer - Reduce to minimal */
 .scroll-end-spacer {
-  height: 80px; /* Reduced from 100px */
+  height: 0px; /* Removed completely */
 }
 
 .scroll-end-spacer.mobile {
-  height: 40px;
+  height: 20px; /* Keep minimal for mobile */
 }
 
 /* ========================================
@@ -353,12 +364,12 @@
 
 @media (max-width: 1024px) {
   .scroll-content-layout {
-    gap: 30px; /* Reduced from 40px */
-    max-width: 1000px; /* Reduced for medium screens */
+    gap: 50px; /* Increased gap for medium screens */
+    max-width: 1000px;
   }
 
   .scroll-image-area {
-    flex: 0 0 400px; /* Reduced for medium screens */
+    flex: 0 0 400px;
     max-width: 400px;
     min-height: 400px;
   }
