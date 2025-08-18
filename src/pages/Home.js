@@ -1,30 +1,41 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
+import { useNavigationType,useLocation } from "react-router-dom"
 
 import Hero from "../components/Hero"
 import AboutUs from "../components/AboutUs"
-import WhoWeAre from "../components/WhoWeAre"
-import ShopFloorFeatures from "../components/ShopFloorFeatures"
-import Products from "../components/Products"
-import BookDemo from "../components/BookDemo"
 import ScrollSections from "../components/HomeProducts.js"
 import OurClientsSection from "../components/ourclients_scroll.js"
 import Iotcomponent from "../components/Iotcomponent.js"
 import Preloader from "../components/Preloader.js"
 import Pagescroll from "../components/photoscroll1.js"
 import Contactform from "../components/ContactForm.js"
+import Products from "../components/Products.js"
+// import WhoWeAre from "../components/WhoWeAre"
+// import ShopFloorFeatures from "../components/ShopFloorFeatures"
+// import BookDemo from "../components/BookDemo"
+
 export default function Home() {
-  const [showPreloader, setShowPreloader] = useState(true)
+  const [showPreloader, setShowPreloader] = useState(false)
   const [contentVisible, setContentVisible] = useState(false)
+  const location = useLocation()
+  const navType = useNavigationType() // 'POP', 'PUSH', or 'REPLACE'
+
+  useEffect(() => {
+    // Only show preloader on direct load or refresh
+    if (navType === "POP") {
+      setShowPreloader(true)
+    } else {
+      setContentVisible(true)
+    }
+  }, [navType])
 
   const handlePreloaderComplete = () => {
     setShowPreloader(false)
-    // Small delay to ensure smooth transition
     setTimeout(() => {
       setContentVisible(true)
     }, 100)
   }
 
-  // Prevent scrolling while preloader is active
   useEffect(() => {
     if (showPreloader) {
       document.body.style.overflow = "hidden"
@@ -44,36 +55,35 @@ export default function Home() {
       <div
         className={`home-content ${contentVisible ? "content-visible" : "content-hidden"}`}
         style={{
-          opacity: contentVisible ? 1 : 0,
+          opacity: contentVisible ? 1 : 1,
           transition: "opacity 0.8s ease-in-out",
         }}
       >
         <Pagescroll />
-      <Hero />
-      <AboutUs />
-      <ScrollSections />
-      {/* <Pagescroll /> */}
-      {/* <WhoWeAre /> */}
-      {/* <section className="py-16 bg-white">
-        <ShopFloorFeatures />
-      </section> */}
-      <Iotcomponent />
-      <Products />
-      <OurClientsSection />
+        <Hero />
+        <AboutUs />
+        <ScrollSections />
+        {/* <WhoWeAre /> */}
+        {/* <section className="py-16 bg-white">
+          <ShopFloorFeatures />
+        </section> */}
+        <Iotcomponent />
+        <Products />
+        <OurClientsSection />
+        {/* <BookDemo /> */}
+        <Contactform />
+      </div>
 
-      {/* <BookDemo /> */}
-      <Contactform />
-    </div>
-     <style jsx>{`
+      <style jsx>{`
         .home-content {
           transition: opacity 0.5s ease-in-out;
         }
-        
+
         .home-content.hidden {
           opacity: 0;
           pointer-events: none;
         }
-        
+
         .home-content.visible {
           opacity: 1;
           pointer-events: auto;

@@ -13,8 +13,7 @@
   align-items: center;
   overflow: hidden;
   background: url('../images/contactimg.png') center center/cover no-repeat;
-  /* Fallback gradient in case image doesn't load */
-  background-color: #059669;
+  background-color: transparent;
 }
 
 /* Add overlay for better text readability */

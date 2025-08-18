@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-
 import "../components_css/bookDemo.css"
 
 const BookDemo = () => {
@@ -51,21 +50,66 @@ const BookDemo = () => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    console.log('Submitting form data:', formData)
 
-    alert("Demo request submitted successfully! We will contact you soon.")
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      service: "",
-      message: "",
-      preferredDate: "",
-      preferredTime: "",
-    })
-    setIsSubmitting(false)
+    try {
+      // Point to your PHP server (XAMPP typically runs on port 80)
+      const url = process.env.REACT_APP_API;
+      
+      console.log('Sending request to:', url)
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString(),
+      })
+
+      console.log('Response status:', response.status)
+      console.log('Response ok:', response.ok)
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      const result = await response.json()
+      console.log('Response data:', result)
+
+      if (result.success) {
+        alert("Your request has been submitted successfully! We will get back to you soon...")
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          service: "",
+          message: "",
+          preferredDate: "",
+          preferredTime: "",
+        })
+      } else {
+        console.error('Server error:', result)
+        alert("Error: " + (result.error || 'Unknown error occurred'))
+        
+        // Log debug info if available
+        if (result.debug) {
+          console.log('Debug info:', result.debug)
+        }
+      }
+    } catch (error) {
+      console.error('Fetch error:', error)
+      
+      if (error.name === 'TypeError' && error.message.includes('fetch')) {
+        alert("Network error: Unable to connect to server. Please check if the server is running on http://localhost/")
+      } else if (error.message.includes('HTTP error')) {
+        alert(`Server error: ${error.message}`)
+      } else {
+        alert("Failed to submit form. Error: " + error.message)
+      }
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const services = [
@@ -155,8 +199,6 @@ const BookDemo = () => {
 
   return (
     <div className="demo-page">
-  
-
       {/* Hero Section */}
       <section className="demo-hero">
         <div className="demo-hero-background"></div>
@@ -409,7 +451,6 @@ const BookDemo = () => {
           </div>
         </div>
       </section>
-
     </div>
   )
 }

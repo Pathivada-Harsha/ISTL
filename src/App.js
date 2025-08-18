@@ -1,7 +1,7 @@
-import React, { Suspense,useEffect } from "react"
+import React, { Suspense, useEffect, useState } from "react"
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom"
 import Navbar from "./components/Navbar"
-import Home from "./pages/Home1.js"
+import Home from "./pages/Home.js"
 import Footer from "./components/Footer"
 import "./App.css"
 import ScrollToTop from "./components/ScrollToTop.js"
@@ -16,6 +16,7 @@ const Products = React.lazy(() => import("./pages/Products"))
 const IstlCcms = React.lazy(() => import("./pages/products/IstlCcms"))
 const IstlItms = React.lazy(() => import("./pages/products/IstlItms"))
 const IstlMcms = React.lazy(() => import("./pages/products/IstlMcms"))
+const AGDSM = React.lazy(() => import("./pages/products/Agdsm"))
 const SolarPanels = React.lazy(() => import("./pages/epc/SolarPanels"))
 const Substations = React.lazy(() => import("./pages/epc/Substations"))
 const Power_td = React.lazy(() => import("./pages/epc/power_td"))
@@ -30,7 +31,6 @@ const Cookie = React.lazy(() => import("./pages/documents/cookie-policy"))
 
 // Loading component
 const LoadingSpinner = () => (
-
   <div
     style={{
       display: "flex",
@@ -45,15 +45,44 @@ const LoadingSpinner = () => (
   </div>
 )
 
-function App() {
-  const loc = useLocation();
+// Component to handle invalid routes with conditional loading
+const InvalidRouteHandler = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [isRedirecting, setIsRedirecting] = useState(false);
 
-  // useEffect(() => {
-  //   if (loc.pathname === '/india') {
-  //     navigate('/');
-  //   }
-  // }, [loc, navigate]);
+  // Check if the URL contains "false"
+  const shouldShowLoading = location.pathname.includes('false');
+
+  useEffect(() => {
+    console.log('Invalid path:', location.pathname);
+    
+    if (shouldShowLoading) {
+      setIsRedirecting(true);
+      
+      // Add a small delay to show the loading spinner before redirecting
+      const timer = setTimeout(() => {
+        navigate('/');
+      }, 800); // Adjust this delay as needed
+
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname, navigate, shouldShowLoading]);
+
+  // Show loading spinner if URL contains "false", otherwise show Page Not Found
+  if (shouldShowLoading) {
+    return <LoadingSpinner />;
+  }
+
+  return (
+    <div style={{ padding: "50px", textAlign: "center" }}>
+      <h2>Page Not Found</h2>
+      <p>The requested page could not be found.</p>
+    </div>
+  );
+};
+
+function App() {
 
   return (
     <>
@@ -70,6 +99,7 @@ function App() {
             <Route path="/products/istl-ccms" element={<IstlCcms />} />
             <Route path="/products/istl-Itms" element={<IstlItms />} />
             <Route path="/products/istl-mcms" element={<IstlMcms />} />
+            <Route path="/products/agdsm" element={<AGDSM />} />
             <Route path="/products/epc/solar-panels" element={<SolarPanels />} />
             <Route path="/products/epc/substations" element={<Substations />} />
             <Route path="/products/epc/power_td" element={<Power_td />} />
@@ -81,15 +111,8 @@ function App() {
             <Route path="/Terms" element={<Terms />} />
             <Route path="/Cookie" element={<Cookie />} />
             <Route path="/book-demo" element={<BookDemo />} />
-            <Route
-              path="*"
-              element={
-                <div style={{ padding: "50px", textAlign: "center" }}>
-                  <h2>Page Not Found</h2>
-                  <p>The requested page could not be found.</p>
-                </div>
-              }
-            />
+            {/* Replace the catch-all route with our loading handler */}
+            <Route path="*" element={<InvalidRouteHandler />} />
           </Routes>
         </Suspense>
         <Footer />
@@ -100,5 +123,3 @@ function App() {
 }
 
 export default App;
-
-

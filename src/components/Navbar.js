@@ -98,7 +98,8 @@ export default function Navbar() {
         { name: "CCMS", path: "/products/istl-ccms", description: "Centralized Control & Monitoring System" },
         { name: "ITMS", path: "/products/istl-itms", description: "Intelligent Transformer Monitoring System" },
         { name: "MCMS", path: "/products/istl-mcms", description: "Motor Control & Monitoring System" },
-        { name: "Smart LED Street Lights", path: "/products/smart-street-lights", description: "Intelligent Street Lighting Solutions" }
+        { name: "Smart LED Street Lights", path: "/products/smart-street-lights", description: "Intelligent Street Lighting Solutions" },
+        { name: "AGDSM", path: "/products/agdsm", description: "Smart energy for sustainable farming" },
       ]
     },
     {
@@ -129,8 +130,11 @@ export default function Navbar() {
       hasDropdown: true,
       dropdownKey: "countries",
       items: [
-        { name: "UAE", path: "https://istlenergy.com/uae/", description: "", external: true },
-        { name: "Singapore", path: "https://istlenergy.com/singapore/", description: "", external: true }
+        { name: "UAE", path: "https://istlenergy.com/uae/false", description: "", external: true },
+        { name: "Singapore", path: "https://istlenergy.com/singapore/false", description: "", external: true }
+        //  { name: "UAE", path: "http://localhost:3000/uae/false", description: "", external: true },
+        // { name: "Singapore", path: "http://localhost:3001/singapore/false", description: "", external: true }
+
       ]
     }
   ]

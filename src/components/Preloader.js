@@ -18,9 +18,20 @@ export default function Preloader({ onComplete }) {
   const [selectedLocation, setSelectedLocation] = useState(null)
   const [countdown, setCountdown] = useState(5)
   const navigate = useNavigate() // Add this hook
-
+//   const [countryName,setCountryName]=useState()
+// useEffect(() => {
+//   fetch("https://ipapi.co/json/")
+//     .then((res) => res.json())
+//     .then((data) => {
+//       console.log("City:", data.city);
+//       console.log("Region:", data.region);
+//       console.log("Country:", data.country_name);
+//       console.log("IP:", data.ip);
+//     })
+//     .catch((err) => console.error("Location fetch error:", err));
+// }, []);
   const locations = [
-    { id: 'dubai', label: 'Dubai', path: '/dubai', flag: dubaiFlag },
+    { id: 'uae', label: 'UAE', path: '/uae', flag: dubaiFlag },
     { id: 'india', label: 'India', path: '/india', flag: indiaFlag },
     { id: 'singapore', label: 'Singapore', path: '/singapore', flag: singaporeFlag }
   ]
@@ -32,11 +43,10 @@ export default function Preloader({ onComplete }) {
   ]
 
   const handleLocationSelect = useCallback((locationId) => {
-    if (selectedLocation) return // Prevent multiple selections
+    if (selectedLocation) return 
 
     setSelectedLocation(locationId)
-    
-    console.log('Selected location:', locationId) // Debug log
+ 
 
     if (locationId === 'india') {
       // For India, close preloader and go to home
@@ -48,12 +58,16 @@ export default function Preloader({ onComplete }) {
     } else {
       // For other countries, redirect immediately to external URLs without closing preloader
       const externalUrls = {
-        dubai: 'https://istlenergy.com/uae/',
-        singapore: 'https://istlenergy.com/singapore/'
+        dubai: 'https://istlenergy.com/uae/false',
+        singapore: 'https://istlenergy.com/singapore/false'
+        //    uae: 'http://localhost:3000/uae/false',
+        // singapore: 'http://localhost:3001/singapore/false'
       }
       
       setTimeout(() => {
+        // window.location.href = externalUrls[locationId] || 'http://localhost:3002/india'
         window.location.href = externalUrls[locationId] || 'https://istlenergy.com/india/'
+
       }, 800) // Shorter delay for external redirects
     }
   }, [selectedLocation, navigate, onComplete])

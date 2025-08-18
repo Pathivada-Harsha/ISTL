@@ -1,0 +1,313 @@
+
+* {
+  box-sizing: border-box;
+}
+
+
+.gallery-item,
+.modal,
+.modal-content,
+.gallery-overlay {
+  will-change: transform;
+  transform: translateZ(0); 
+}
+
+.gallery-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Gallery Section */
+.gallery-section {
+  margin-top: 60px;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gallery-header h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-header p {
+  color: #6b7280;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Gallery Item - Reduced animations for better scrolling */
+.gallery-item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease; /* Reduced transition time */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Simplified shadow */
+  background-color: #f3f4f6; /* Fallback color while loading */
+}
+
+.gallery-item:hover {
+  transform: translateY(-2px); /* Reduced movement */
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: none; /* Removed scale transition for better performance */
+  display: block;
+}
+
+/* Gallery Overlay - Simplified for performance */
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.8), rgba(22, 163, 74, 0.8));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease; /* Faster transition */
+  color: white;
+  font-weight: 600;
+  pointer-events: none; /* Improve touch performance */
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.gallery-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Gallery Actions */
+.gallery-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.gallery-more-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Simplified transitions */
+  box-shadow: 0 4px 8px rgba(34, 197, 94, 0.3); /* Simplified shadow */
+}
+
+.gallery-more-btn:hover {
+  transform: translateY(-1px); /* Reduced movement */
+  box-shadow: 0 6px 12px rgba(34, 197, 94, 0.4); /* Simplified shadow */
+}
+
+.btn-icon {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.gallery-more-btn:hover .btn-icon {
+  transform: translateY(1px); /* Reduced movement */
+}
+
+/* Modal Styles - Optimized for performance */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: none; /* Removed for better performance */
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Simplified transition */
+}
+
+.modal-close:hover {
+  background: white;
+  transform: scale(1.05); /* Reduced scale */
+}
+
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #059669;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Simplified transition */
+}
+
+.modal-nav:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.05); /* Reduced scale */
+}
+
+.modal-prev {
+  left: 20px;
+}
+
+.modal-next {
+  right: 20px;
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  /* Disable hover effects on mobile for better performance */
+  .gallery-item:hover {
+    transform: none;
+  }
+  
+  .gallery-overlay {
+    display: none; /* Hide overlay on mobile */
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .modal-content {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+  
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  
+  .modal-nav {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+  
+  .modal-prev {
+    left: 10px;
+  }
+  
+  .modal-next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .gallery-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .gallery-header p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-item,
+  .gallery-overlay,
+  .gallery-more-btn,
+  .modal-close,
+  .modal-nav,
+  .btn-icon {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Additional performance optimizations */
+.gallery-item img {
+  backface-visibility: hidden; /* Prevent flicker */
+  perspective: 1000px; /* Improve 3D rendering */
+}
+
+/* Optimize for different screen densities */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .gallery-item {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadows on high-DPI displays */
+  }
+}
