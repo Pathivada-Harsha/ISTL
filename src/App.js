@@ -111,7 +111,6 @@ function App() {
             <Route path="/Terms" element={<Terms />} />
             <Route path="/Cookie" element={<Cookie />} />
             <Route path="/book-demo" element={<BookDemo />} />
-            {/* Replace the catch-all route with our loading handler */}
             <Route path="*" element={<InvalidRouteHandler />} />
           </Routes>
         </Suspense>

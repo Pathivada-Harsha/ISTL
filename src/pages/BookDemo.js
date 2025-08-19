@@ -13,6 +13,7 @@ const BookDemo = () => {
     message: "",
     preferredDate: "",
     preferredTime: "",
+    web_location: "india", // Default value set to "india"
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isVisible, setIsVisible] = useState({})
@@ -40,14 +41,36 @@ const BookDemo = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
+    
+    // Special handling for phone number
+    if (name === 'phone') {
+      // Remove all non-numeric characters
+      const numericValue = value.replace(/\D/g, '')
+      
+      // Limit to 10 digits
+      const limitedValue = numericValue.slice(0, 10)
+      
+      setFormData((prev) => ({
+        ...prev,
+        [name]: limitedValue,
+      }))
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }))
+    }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    
+    // Validate phone number before submission
+    if (formData.phone.length !== 10) {
+      alert("Please enter a valid 10-digit phone number")
+      return
+    }
+    
     setIsSubmitting(true)
 
     console.log('Submitting form data:', formData)
@@ -87,6 +110,7 @@ const BookDemo = () => {
           message: "",
           preferredDate: "",
           preferredTime: "",
+          web_location: "india", // Reset to default value
         })
       } else {
         console.error('Server error:', result)
@@ -250,7 +274,7 @@ const BookDemo = () => {
               <form onSubmit={handleSubmit} className="demo-form demo-animate-on-scroll" id="demo-form">
                 <div className="demo-form-row">
                   <div className="demo-form-group">
-                    <label htmlFor="name">Full Name *</label>
+                    <label htmlFor="name">Full Name <span style={{color:"red"}}>*</span></label>
                     <input
                       type="text"
                       id="name"
@@ -263,7 +287,7 @@ const BookDemo = () => {
                   </div>
 
                   <div className="demo-form-group">
-                    <label htmlFor="email">Email Address *</label>
+                    <label htmlFor="email">Email Address <span style={{color:"red"}}>*</span></label>
                     <input
                       type="email"
                       id="email"
@@ -278,16 +302,24 @@ const BookDemo = () => {
 
                 <div className="demo-form-row">
                   <div className="demo-form-group">
-                    <label htmlFor="phone">Phone Number *</label>
+                    <label htmlFor="phone">Phone Number <span style={{color:"red"}}>*</span></label>
                     <input
-                      type="tel"
+                      type="text"
                       id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      placeholder="Enter your phone number"
+                      placeholder="Enter your 10-digit phone number"
+                      pattern="[0-9]{10}"
+                      title="Please enter exactly 10 digits"
+                      maxLength="10"
                     />
+                    {formData.phone && formData.phone.length < 10 && (
+                      <small style={{ color: '#ff6b6b', fontSize: '0.8em', marginTop: '4px', display: 'block' }}>
+                        Please enter {10 - formData.phone.length} more digit(s)
+                      </small>
+                    )}
                   </div>
 
                   <div className="demo-form-group">
@@ -304,7 +336,7 @@ const BookDemo = () => {
                 </div>
 
                 <div className="demo-form-group">
-                  <label htmlFor="service">Service of Interest *</label>
+                  <label htmlFor="service">Service of Interest <span style={{color:"red"}}>*</span></label>
                   <select id="service" name="service" value={formData.service} onChange={handleInputChange} required>
                     <option value="">Select a service</option>
                     {services.map((service) => (
@@ -345,6 +377,19 @@ const BookDemo = () => {
                       <option value="16:00">04:00 PM</option>
                     </select>
                   </div>
+                </div>
+
+                {/* Optional: Add web_location as a visible field if needed */}
+                <div className="demo-form-group" style={{ display: 'none' }}>
+                  <label htmlFor="web_location">Location</label>
+                  <input
+                    type="text"
+                    id="web_location"
+                    name="web_location"
+                    value={formData.web_location}
+                    onChange={handleInputChange}
+                    readOnly
+                  />
                 </div>
 
                 <div className="demo-form-group">

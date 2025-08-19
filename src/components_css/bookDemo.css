@@ -471,6 +471,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
+  align-items: stretch; /* This ensures all cards have the same height */
 }
 
 .demo-testimonial-card {
@@ -483,6 +484,9 @@
   transform: translateY(20px);
   position: relative;
   overflow: hidden;
+  display: flex; /* Use flexbox layout */
+  flex-direction: column; /* Stack content vertically */
+  min-height: 280px; /* Set a minimum height for consistency */
 }
 
 .demo-testimonial-card::before {
@@ -533,11 +537,13 @@
   font-style: italic;
   position: relative;
   z-index: 1;
+  flex-grow: 1; /* This makes the text area grow to fill available space */
 }
 
 .demo-testimonial-author {
   position: relative;
   z-index: 1;
+  margin-top: auto; /* This pushes the author section to the bottom */
 }
 
 .demo-testimonial-author h4 {
