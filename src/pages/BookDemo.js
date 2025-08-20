@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import "../components_css/bookDemo.css"
-
+import {useLocation} from "react-router-dom"
 const BookDemo = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -13,7 +13,7 @@ const BookDemo = () => {
     message: "",
     preferredDate: "",
     preferredTime: "",
-    web_location: "india", // Default value set to "india"
+    web_location: "india",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isVisible, setIsVisible] = useState({})
@@ -38,6 +38,27 @@ const BookDemo = () => {
 
     return () => observer.disconnect()
   }, [])
+
+   const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollToForm) {
+      const timer = setTimeout(() => {
+        const formElement = document.getElementById('form-header') || 
+                           document.getElementById('demo-form') ||
+                           document.querySelector('.demo-form-section');
+        
+        if (formElement) {
+          formElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+        }
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [location.state]);
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -110,7 +131,7 @@ const BookDemo = () => {
           message: "",
           preferredDate: "",
           preferredTime: "",
-          web_location: "india", // Reset to default value
+          web_location: "india",
         })
       } else {
         console.error('Server error:', result)
