@@ -132,8 +132,8 @@ export default function Navbar() {
       items: [
         { name: "UAE", path: "https://istlenergy.com/uae/false", description: "", external: true },
         { name: "Singapore", path: "https://istlenergy.com/singapore/false", description: "", external: true }
-        //  { name: "UAE", path: "http://localhost:3000/uae/false", description: "", external: true },
-        // { name: "Singapore", path: "http://localhost:3001/singapore/false", description: "", external: true }
+        //  { name: "UAE", path: "http://localhost:3001/uae/false", description: "", external: true },
+        // { name: "Singapore", path: "http://localhost:3000/singapore/false", description: "", external: true }
 
       ]
     }

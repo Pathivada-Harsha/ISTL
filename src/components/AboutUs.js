@@ -49,7 +49,7 @@
 // File: AboutUs.jsx
 import React, { useState, useEffect } from 'react';
 import '../components_css/home_aboutus.css';
-
+import { NavLink } from 'react-router-dom';
 
 import lab1 from "../images/Home/lab6.jpeg"
 import office from "../images/Home/office.jpeg"
@@ -105,9 +105,9 @@ const AboutUs = () => {
           services, ensuring energy systems that are efficient, scalable, and future-ready.
         </p>
         <button className="habo-learn-more-btn">
-          <a href="/about" className="habo-learn-more-link">
+          <NavLink to="/about" className="habo-learn-more-link">
             Learn More About Us →
-          </a>
+          </NavLink>
         </button>
       </div>
 

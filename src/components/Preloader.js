@@ -18,18 +18,7 @@ export default function Preloader({ onComplete }) {
   const [selectedLocation, setSelectedLocation] = useState(null)
   const [countdown, setCountdown] = useState(5)
   const navigate = useNavigate() // Add this hook
-//   const [countryName,setCountryName]=useState()
-// useEffect(() => {
-//   fetch("https://ipapi.co/json/")
-//     .then((res) => res.json())
-//     .then((data) => {
-//       console.log("City:", data.city);
-//       console.log("Region:", data.region);
-//       console.log("Country:", data.country_name);
-//       console.log("IP:", data.ip);
-//     })
-//     .catch((err) => console.error("Location fetch error:", err));
-// }, []);
+
   const locations = [
     { id: 'uae', label: 'UAE', path: '/uae', flag: dubaiFlag },
     { id: 'india', label: 'India', path: '/india', flag: indiaFlag },
@@ -58,15 +47,15 @@ export default function Preloader({ onComplete }) {
     } else {
       // For other countries, redirect immediately to external URLs without closing preloader
       const externalUrls = {
-        dubai: 'https://istlenergy.com/uae/false',
+        uae: 'https://istlenergy.com/uae/false',
         singapore: 'https://istlenergy.com/singapore/false'
-        //    uae: 'http://localhost:3000/uae/false',
-        // singapore: 'http://localhost:3001/singapore/false'
+        //    uae: 'http://localhost:3001/uae/false',
+        // singapore: 'http://localhost:3000/singapore/false'
       }
       
       setTimeout(() => {
-        // window.location.href = externalUrls[locationId] || 'http://localhost:3002/india'
-        window.location.href = externalUrls[locationId] || 'https://istlenergy.com/india/'
+        // window.location.href = externalUrls[locationId] || 'http://localhost:3002'
+        window.location.href = externalUrls[locationId] || 'https://istlenergy.com/'
 
       }, 800) // Shorter delay for external redirects
     }
